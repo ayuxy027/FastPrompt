@@ -75,6 +75,8 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
+    z-index: 0;
+    opacity: 0.7;
   }
   
   #progressive-blur {
@@ -122,7 +124,7 @@
     transition: background 1.0s var(--timing-fn);
     height: 100%;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.4;
   }
   
   #glow-bounce {
@@ -130,7 +132,7 @@
     position: absolute;
     background: linear-gradient(355deg, var(--bounce-light) 0%, transparent 30%, transparent 100%);
     transition: background 1.0s var(--timing-fn);
-    opacity: 0.5;
+    opacity: 0.4;
     height: 100%;
     width: 100%;
     bottom: 0;
@@ -143,7 +145,7 @@
     right: 0;
     width: 80vw;
     height: 130vh;
-    opacity: 0.07;
+    opacity: 0.05;
     background-blend-mode: darken;
     transform-origin: top right;
     transform-style: preserve-3d;
@@ -154,7 +156,7 @@
   }
   
   .dark .perspective {
-    opacity: 0.3;
+    opacity: 0.2;
     transform: matrix3d(0.8333, 0.0833, 0.0000, 0.0003,
         0.0000, 1.0000, 0.0000, 0.0000,
         0.0000, 0.0000, 1.0000, 0.0000,
@@ -177,6 +179,7 @@
   #blinds {
     position: relative;
     width: 100%;
+    opacity: 0.6;
   }
   
   #blinds .shutter,
