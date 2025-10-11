@@ -1,4 +1,5 @@
 import React from 'react';
+import Block from './Block';
 
 interface FooterItem {
     label: string;
@@ -51,8 +52,46 @@ const Footer: React.FC = () => {
     };
 
     return (
-        <div className="px-4 xl:px-0 bg-gradient-to-br from-orange-50 to-white">
-            <footer className="relative mx-auto flex max-w-6xl flex-wrap pt-8 pb-16 font-['Plus_Jakarta_Sans'] tracking-tight">
+        <div className="px-4 xl:px-0 relative">
+            {/* Upper Bounding Block */}
+            <Block
+                position="absolute"
+                // Injecting negative value in top
+                top="-top-11"
+                left="left-0"
+                right="right-0"
+                height="h-18"
+                width="w-full"
+                lineDirection="center"
+                lineColor="stroke-orange-200"
+                lineCount={17}
+                strokeWidth={2}
+                borderColor="border-orange-200"
+                borderWidth="border-b"
+                borderStyle="dashed"
+                zIndex={1}
+            />
+
+            {/* Lower Bounding Block */}
+            <Block
+                position="absolute"
+                // Injecting negative value in top
+                top="top-full"
+                left="left-0"
+                right="right-0"
+                height="h-20"
+                width="w-full"
+                lineDirection="center"
+                lineColor="stroke-orange-200"
+                lineCount={17}
+                strokeWidth={2}
+                borderColor="border-orange-200"
+                borderWidth="border-t"
+                borderStyle="dashed"
+                zIndex={1}
+            />
+
+            <footer className="relative mx-auto flex max-w-6xl flex-wrap pt-8 pb-16 font-['Plus_Jakarta_Sans'] tracking-tight z-10">
 
                 <div className="mr-auto flex w-full justify-between lg:w-fit lg:flex-col">
 
