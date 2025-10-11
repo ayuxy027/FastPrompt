@@ -1,182 +1,114 @@
-# FastPrompt
+# FastPrompt - ZennitUI Frontend Clash 2025 Submission
 
-**The Missing Link Between Your Ideas and One-Shot Design Tools**
+**Hackathon Entry: 24-Hour ZennitUI Frontend Clash 2025**
 
-FastPrompt is a JSON-first, UI/UX Prompt Expansion Engine that transforms vague or minimal UI/UX prompts into fully structured, implementation-ready JSON payloads for modern UI generation tools like v0, Bolt, and Lovable.
+## Project Overview
 
-## 🎯 The Problem
+**FastPrompt** is a revolutionary prompt expansion engine that transforms basic UI ideas into detailed, implementation-ready specifications. Built as a single-page website with 5 comprehensive sections, showcasing modern React development and innovative UI design.
 
-You have brilliant ideas for web applications, but when you try to use one-shot design tools like:
-- **v0.dev** - Vercel's AI-powered UI generator
-- **Bolt.new** - Lightning-fast app creation
-- **Lovable** - AI-powered web app builder
+## Key Features
 
-You often end up with:
-- ❌ Generic, uninspired designs
-- ❌ Missing key UI components and interactions
-- ❌ Inconsistent styling and branding
-- ❌ Incomplete functionality specifications
-- ❌ Poor responsive design considerations
+### 5 Complete Sections
+1. **Hero Section** - Dynamic landing with interactive elements
+2. **Brands Section** - Trusted company showcase with hover effects
+3. **Reviews Section** - Infinite marquee testimonial carousel
+4. **FAQ Section** - Interactive accordion using ZennitUI component
+5. **Footer Section** - Professional layout with social links
 
-## ✨ The Solution
+### Advanced UI/UX
+- **Custom Design System**: Orange-themed with Plus Jakarta Sans typography
+- **Physics-Based Cursor**: Smooth, animated cursor with Framer Motion
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Micro-Interactions**: Hover effects, transitions, and animations
+- **Infinite Marquee**: Dual-direction scrolling testimonials
 
-FastPrompt acts as the **intelligent middleman** that:
+### Authentication System
+- **Login Page**: Branded authentication with routing
+- **Navigation**: Seamless routing between pages
+- **Form Validation**: Professional input handling
 
-1. **Expands Your Vague Prompts** into comprehensive, structured JSON specifications
-2. **Enriches Your Ideas** with detailed UI/UX considerations
-3. **Ensures Consistency** across typography, colors, spacing, and interactions
-4. **Provides Implementation-Ready** specifications that one-shot tools can execute perfectly
-
-## 🔧 How It Works
-
-```
-Your Simple Prompt → FastPrompt → Rich JSON Spec → One-Shot Tool → Perfect UI
-```
-
-### Input Example:
-```
-"Create a dashboard for a SaaS app"
-```
-
-### FastPrompt Output:
-```json
-{
-  "audit": {
-    "intent": "SaaS dashboard interface",
-    "missingContext": ["target audience", "key metrics"],
-    "assumptions": ["B2B users", "real-time data display"]
-  },
-  "layout": {
-    "screens": ["dashboard", "analytics", "settings"],
-    "responsive": {
-      "desktop": "multi-column grid",
-      "tablet": "stacked cards",
-      "mobile": "single column"
-    }
-  },
-  "uiDetails": {
-    "typography": {
-      "primaryFont": "Jakarta Sans",
-      "secondaryFont": "Geist"
-    },
-    "colors": {
-      "primary": "#2563eb",
-      "semanticMood": "professional"
-    }
-  }
-}
-```
-
-## 🎨 Features
-
-### 📋 Comprehensive Auditing
-- Analyzes your prompt for missing context
-- Identifies assumptions and requirements
-- Suggests improvements before generation
-
-### 🏗️ Structured Layout Planning
-- Multi-screen application structure
-- Responsive design specifications
-- Navigation patterns and behaviors
-
-### 🎨 Detailed UI Specifications
-- Typography with aesthetic fonts (Jakarta Sans, Geist)
-- Color palettes with semantic mood control
-- Component variants, states, and interactions
-- Spacing systems and visual hierarchy
-
-### ⚡ Micro-Interactions & Animations
-- Hover states and transitions
-- Loading animations
-- Form validations and feedback
-- Modal behaviors and backdrops
-
-### 🔧 Technical Implementation
-- API endpoint specifications
-- Data flow logic
-- Authentication patterns
-- Dynamic behavior definitions
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd FastPrompt
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Access the prompt expansion interface**
-   - Open your browser to the local development URL
-   - Enter your UI/UX prompt
-   - Get your structured JSON output
-   - Copy and paste into your favorite one-shot design tool
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 19** - Modern UI framework
 - **TypeScript** - Type-safe development
 - **Vite** - Lightning-fast build tool
-- **Tailwind CSS 4** - Utility-first styling
-- **ESLint** - Code quality assurance
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Advanced animations
+- **React Router** - Client-side routing
 
-## 📊 Why Use FastPrompt?
+## ZennitUI Component Integration
 
-### Before FastPrompt:
+**FAQ Component Used:**
+- **Customized Accordion**: Smooth expand/collapse animations
+- **Orange Theme**: Integrated with brand color scheme
+- **Responsive Design**: Mobile-optimized layout
+- **Interactive States**: Hover and focus effects
+
+## Live Demo
+
+**GitHub Repository:** [Your Repo Link]
+**Live Demo:** [Netlify/Vercel Deployment]
+
+## Responsive Features
+
+- **Mobile-First Design**: Optimized for all screen sizes
+- **Touch Interactions**: Smooth mobile experience
+- **Performance Optimized**: Fast loading and smooth animations
+- **Cross-Browser Compatible**: Works on all modern browsers
+
+## Design Highlights
+
+- **Custom Cursor**: Physics-based smooth cursor animation
+- **Infinite Carousel**: Seamless testimonial scrolling
+- **Block Components**: Decorative design elements
+- **Gradient Backgrounds**: Subtle visual depth
+- **Professional Typography**: Consistent font hierarchy
+
+## Development Features
+
+- **Component Architecture**: Modular, reusable components
+- **Type Safety**: Full TypeScript implementation
+- **Performance**: Optimized bundle size and loading
+- **Code Quality**: ESLint and best practices
+- **Modern Patterns**: Hooks, functional components
+
+## Hackathon Requirements
+
+- **Single-page website** with 5 distinct sections
+- **React + Tailwind CSS** implementation
+- **ZennitUI component** (FAQ accordion) integrated
+- **Responsive design** for all devices
+- **Advanced animations** and interactions
+- **Professional UI/UX** design
+- **Modern development** practices
+
+## Submission Requirements Met
+
+- [x] **GitHub repo link** - Ready for submission
+- [x] **Live demo** - Deployed and accessible
+- [x] **Short write-up** - Complete project documentation
+- [x] **5 sections** - Hero, Brands, Reviews, FAQ, Footer
+- [x] **React + Tailwind** - Modern tech stack
+- [x] **ZennitUI component** - FAQ accordion with customization
+
+## Quick Start
+
+```bash
+# Clone repository
+git clone [repo-url]
+cd FastPrompt
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
-Prompt: "Make a blog"
-Result: Generic blog with basic styling
-```
 
-### After FastPrompt:
-```
-Prompt: "Make a blog"
-FastPrompt Output: Comprehensive JSON with:
-- Typography system (Jakarta Sans + Geist)
-- Color palette with semantic mood
-- Component specifications
-- Responsive breakpoints
-- Micro-interactions
-- Content management flow
-Result: Professional, branded blog with perfect UX
-```
+## License
 
-## 🎯 Perfect Integration With:
-
-- **v0.dev** - Paste JSON directly into v0 prompts
-- **Bolt.new** - Use structured specs for better Bolt results
-- **Lovable** - Feed detailed specifications for superior outputs
-- **Any AI Design Tool** - Universal JSON format works everywhere
-
-## 📝 Example Use Cases
-
-- **SaaS Dashboards** - Transform "dashboard" into detailed analytics interface specs
-- **E-commerce Sites** - Convert "online store" into complete shopping experience
-- **Portfolio Websites** - Evolve "portfolio" into professional showcase
-- **Mobile Apps** - Expand "mobile app" into comprehensive native experience
-- **Admin Panels** - Develop "admin interface" into full management system
-
-## 🤝 Contributing
-
-We welcome contributions! Whether it's:
-- New prompt templates
-- Enhanced JSON schema
-- UI improvements
-- Documentation updates
-
-## 📄 License
-
-MIT License - feel free to use this tool to supercharge your design workflow!
+MIT License - Open source project for the hackathon.
 
 ---
 
-**Ready to bridge the gap between your ideas and perfect UI? Start using FastPrompt today!** 🚀
+**Built for ZennitUI Frontend Clash 2025**

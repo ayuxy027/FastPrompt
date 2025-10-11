@@ -15,22 +15,24 @@ const Login: React.FC = () => {
 
             <div className="w-full flex flex-col items-center justify-center bg-gradient-to-b from-orange-50/30 to-white relative">
                 {/* Block Component for Creative Use */}
-                <Block
-                    position="absolute"
-                    top="top-30"
-                    left="left-12"
-                    right="right-0"
-                    height="h-35"
-                    width="w-150"
-                    lineDirection="center"
-                    lineColor="stroke-orange-200"
-                    lineCount={17}
-                    strokeWidth={2}
-                    borderColor="border-orange-200"
-                    borderWidth="border-y"
-                    borderStyle="dashed"
-                    zIndex={1}
-                />
+                <div className="hidden sm:block">
+                    <Block
+                        position="absolute"
+                        top="top-30"
+                        left="left-12"
+                        right="right-0"
+                        height="h-35"
+                        width="w-150"
+                        lineDirection="center"
+                        lineColor="stroke-orange-200"
+                        lineCount={17}
+                        strokeWidth={2}
+                        borderColor="border-orange-200"
+                        borderWidth="border-y"
+                        borderStyle="dashed"
+                        zIndex={1}
+                    />
+                </div>
 
                 {/* Back Navigation */}
                 <Link to="/home" className="absolute top-6 left-6 text-slate-600 hover:text-orange-500 transition-colors z-10">
