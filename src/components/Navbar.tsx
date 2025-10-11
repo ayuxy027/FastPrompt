@@ -48,8 +48,8 @@ const Navbar: React.FC = () => {
                 <a href="/api" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     API
                 </a>
-                <a href="/contact" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
-                    Contact
+                <a href="/pricing" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                    Pricing
                 </a>
                 <button
                     aria-label="close menu"

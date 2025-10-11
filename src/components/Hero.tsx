@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
                 top="top-1/2"
                 left="left-0"
                 right="right-0"
-                height="h-140"
+                height="h-150"
                 width="w-full"
                 lineDirection="center"
                 lineColor="stroke-orange-200"
@@ -69,8 +69,9 @@ const Hero: React.FC = () => {
             <Navbar />
 
             <div className="flex flex-col items-center justify-center w-full relative z-10">
-                <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-6xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight">
-                    One Shot Your Wireframes Using <span className="text-orange-500">JSON Prompting</span>
+                <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-6xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
+                    One Shot Your Wireframes Using<br />
+                    <span className="text-orange-500">JSON Prompting</span>
                 </h1>
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed">The missing link between your ideas and one-shot design tools like v0, Bolt, and Lovable.</p>
                 <div className="max-w-xl w-full bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl overflow-hidden mt-6 sm:mt-8 shadow-lg">
