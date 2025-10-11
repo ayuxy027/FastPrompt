@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
 
             <div className="flex flex-col items-center justify-center w-full relative z-10">
                 <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-6xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight">
-                    Transform Your Ideas Into <span className="text-orange-500">Perfect UI</span>
+                    One Shot Your Wireframes Using <span className="text-orange-500">JSON Prompting</span>
                 </h1>
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed">The missing link between your ideas and one-shot design tools like v0, Bolt, and Lovable.</p>
                 <div className="max-w-xl w-full bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl overflow-hidden mt-6 sm:mt-8 shadow-lg">
