@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
                 </div>
             </div>
             <p className="text-orange-600 pb-4 font-['Plus_Jakarta_Sans'] tracking-tight relative z-10 text-sm sm:text-base">
-                Ready to bridge the gap between your ideas and perfect UI? <a href="/contact" className="underline hover:text-orange-800 font-medium">Start using FastPrompt today!</a>
+                For more details, visit <a href="/contact" className="underline hover:text-orange-800 font-medium">FastPrompt</a>
             </p>
         </main>
     );
