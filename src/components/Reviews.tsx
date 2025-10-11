@@ -93,14 +93,17 @@ const Reviews: React.FC = () => {
                     position="absolute"
                     top="top-1/2"
                     left="left-0"
+                    right="right-0"
                     height="h-180"
-                    width="w-500"
-                    lineDirection="right"
+                    width="w-full"
+                    lineDirection="center"
                     lineColor="stroke-orange-200"
                     lineCount={17}
                     strokeWidth={0.5}
+                    borderColor="border-orange-200"
+                    borderWidth="border-y"
+                    borderStyle="dashed"
                     zIndex={1}
-                    borderStyle="dotted"
                 />
 
                 <div className="text-center mb-12 relative z-10">
@@ -109,7 +112,7 @@ const Reviews: React.FC = () => {
                         See what developers and designers are saying about FastPrompt's ability to transform their ideas into perfect UI designs.
                     </p>
                 </div>
-                <div className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative z-10">
+                <div className="marquee-row w-full overflow-hidden relative z-10">
                     <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent"></div>
                     <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5">
                         {[...cardsData, ...cardsData].map((card, index) => (
@@ -119,7 +122,7 @@ const Reviews: React.FC = () => {
                     <div className="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent"></div>
                 </div>
 
-                <div className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative z-10">
+                <div className="marquee-row w-full overflow-hidden relative z-10">
                     <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent"></div>
                     <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-10 pb-5">
                         {[...cardsData, ...cardsData].map((card, index) => (
