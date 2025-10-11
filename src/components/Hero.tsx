@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Block from './Block';
 
 const Hero: React.FC = () => {
     return (
@@ -48,37 +49,22 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Legendary Block Line with Slashed Lines */}
-            <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2">
-                <svg className="h-20 w-full border-y border-dashed border-orange-200 stroke-orange-200">
-                    <defs>
-                        <pattern
-                            id="diagonal-hero-pattern"
-                            patternUnits="userSpaceOnUse"
-                            width="64"
-                            height="64"
-                        >
-                            {Array.from({ length: 17 }, (_, i) => {
-                                const offset = i * 8;
-                                return (
-                                    <path
-                                        key={i}
-                                        d={`M${-106 + offset} 110L${22 + offset} -18`}
-                                        stroke=""
-                                        strokeWidth="1"
-                                        className="stroke-orange-200"
-                                    />
-                                );
-                            })}
-                        </pattern>
-                    </defs>
-                    <rect
-                        stroke="none"
-                        width="100%"
-                        height="100%"
-                        fill="url(#diagonal-hero-pattern)"
-                    />
-                </svg>
-            </div>
+            <Block
+                position="absolute"
+                top="top-1/2"
+                left="left-0"
+                right="right-0"
+                height="h-20"
+                width="w-full"
+                lineDirection="center"
+                lineColor="stroke-orange-200"
+                lineCount={17}
+                strokeWidth={1}
+                borderColor="border-orange-200"
+                borderWidth="border-y"
+                borderStyle="dashed"
+                zIndex={1}
+            />
 
             <Navbar />
 

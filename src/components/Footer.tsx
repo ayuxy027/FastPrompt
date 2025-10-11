@@ -1,5 +1,5 @@
 import React from 'react';
-import FastPromptLogo from '../assets/logo.png';
+import Block from './Block';
 
 interface FooterItem {
     label: string;
@@ -38,7 +38,6 @@ const Footer: React.FC = () => {
         resources: {
             title: "Resources",
             items: [
-                { label: "Developer Hub", href: "/developer-hub" },
                 {
                     label: "Community",
                     href: "/community",
@@ -48,30 +47,20 @@ const Footer: React.FC = () => {
                 { label: "Support", href: "/support" },
                 { label: "Privacy Policy", href: "/privacy" },
                 { label: "Terms of Service", href: "/terms" },
-                { label: "Report an Issue", href: "/report" },
             ],
-        },
-        partners: {
-            title: "Partners",
-            items: [
-                { label: "v0 Integration", href: "/v0-integration" },
-                { label: "Bolt Integration", href: "/bolt-integration", external: true },
-                { label: "Lovable Integration", href: "/lovable-integration", external: true },
-                { label: "API Partners", href: "/api-partners" },
-            ],
-        },
+        }
     };
 
     return (
         <div className="px-4 xl:px-0 bg-gradient-to-br from-orange-50 to-white">
-            <footer className="relative mx-auto flex max-w-6xl flex-wrap pt-16 pb-8 font-['Plus_Jakarta_Sans'] tracking-tight">
+            <footer className="relative mx-auto flex max-w-6xl flex-wrap pt-8 pb-16 font-['Plus_Jakarta_Sans'] tracking-tight">
                 {/* Beautiful Design Elements - Restored */}
                 <div className="pointer-events-none absolute inset-0">
                     {/* Left */}
                     <div
-                        className="absolute inset-y-0 my-[-5rem] w-px"
+                        className="absolute inset-y-0 left-8 w-px"
                         style={{
-                            maskImage: "linear-gradient(transparent, white 5rem)",
+                            maskImage: "linear-gradient(transparent, white 2rem, white, white 2rem)",
                         }}
                     >
                         <svg className="h-full w-full" preserveAspectRatio="none">
@@ -89,9 +78,9 @@ const Footer: React.FC = () => {
 
                     {/* Right */}
                     <div
-                        className="absolute inset-y-0 right-0 my-[-5rem] w-px"
+                        className="absolute inset-y-0 right-8 w-px"
                         style={{
-                            maskImage: "linear-gradient(transparent, white 5rem)",
+                            maskImage: "linear-gradient(transparent, white 2rem, white, white 2rem)",
                         }}
                     >
                         <svg className="h-full w-full" preserveAspectRatio="none">
@@ -107,47 +96,22 @@ const Footer: React.FC = () => {
                         </svg>
                     </div>
                 </div>
-                <svg
-                    className="mb-10 h-20 w-full border-y border-dashed border-orange-200 stroke-orange-200"
-                >
-                    <defs>
-                        <pattern
-                            id="diagonal-footer-pattern"
-                            patternUnits="userSpaceOnUse"
-                            width="64"
-                            height="64"
-                        >
-                            {Array.from({ length: 17 }, (_, i) => {
-                                const offset = i * 8;
-                                return (
-                                    <path
-                                        key={i}
-                                        d={`M${-106 + offset} 110L${22 + offset} -18`}
-                                        stroke=""
-                                        strokeWidth="1"
-                                        className="stroke-orange-200"
-                                    />
-                                );
-                            })}
-                        </pattern>
-                    </defs>
-                    <rect
-                        stroke="none"
-                        width="100%"
-                        height="100%"
-                        fill="url(#diagonal-footer-pattern)"
+                <div className="w-full mb-8">
+                    <Block
+                        position="static"
+                        height="h-12"
+                        width="w-full"
+                        lineDirection="center"
+                        lineColor="stroke-orange-200"
+                        lineCount={17}
+                        strokeWidth={1}
+                        borderColor="border-orange-200"
+                        borderWidth="border-y"
+                        borderStyle="dashed"
                     />
-                </svg>
+                </div>
 
                 <div className="mr-auto flex w-full justify-between lg:w-fit lg:flex-col">
-                    <a href="/" className="flex items-center font-medium text-gray-700 select-none sm:text-sm">
-                        <img
-                            src={FastPromptLogo}
-                            alt="FastPrompt Logo"
-                            className="ml-2 h-32 w-auto"
-                        />
-                        <span className="sr-only">FastPrompt Logo (go home)</span>
-                    </a>
 
                     <div>
                         <div className="mt-4 flex items-center gap-2">

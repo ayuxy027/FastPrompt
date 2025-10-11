@@ -24,7 +24,11 @@ const Navbar: React.FC = () => {
                 <img
                     src={FastPromptLogo}
                     alt="FastPrompt Logo"
-                    className="h-10 w-auto"
+                    className="h-12 w-auto"
+                    style={{
+                        transform: 'scale(5)',
+                        transformOrigin: 'left center'
+                    }}
                 />
             </a>
             <div
