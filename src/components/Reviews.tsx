@@ -137,7 +137,7 @@ const Reviews: React.FC = () => {
                     top="top-1/2"
                     left="left-0"
                     right="right-0"
-                    height="h-150"
+                    height="h-200"
                     width="w-full"
                     lineDirection="center"
                     lineColor="stroke-orange-200"
