@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
             {/* Legendary Block Line with Slashed Lines */}
             <Block
                 position="absolute"
-                top="top-1/2"
+                top="top-35"
                 left="left-0"
                 right="right-0"
                 height="h-150"
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
                 lineDirection="center"
                 lineColor="stroke-orange-200"
                 lineCount={17}
-                strokeWidth={0.5}
+                strokeWidth={1}
                 borderColor="border-orange-200"
                 borderWidth="border-y"
                 borderStyle="dashed"
@@ -105,9 +105,9 @@ const Hero: React.FC = () => {
                     <p className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base">Create an admin panel for user management</p>
                 </div>
             </div>
-            <p className="text-orange-600 pb-4 font-['Plus_Jakarta_Sans'] tracking-tight relative z-10 text-sm sm:text-base">
-                For more details, visit <a href="/contact" className="underline hover:text-orange-800 font-medium">FastPrompt</a>
-            </p>
+            <div className="pb-4 relative z-10">
+                {/* Spacer to maintain hero height */}
+            </div>
         </main>
     );
 };

@@ -142,7 +142,7 @@ const Reviews: React.FC = () => {
                     lineDirection="center"
                     lineColor="stroke-orange-200"
                     lineCount={17}
-                    strokeWidth={0.5}
+                    strokeWidth={1}
                     borderColor="border-orange-200"
                     borderWidth="border-y"
                     borderStyle="dashed"
