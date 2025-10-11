@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Block from "../Block";
 
 const Login: React.FC = () => {
     return (
-        <div className="flex h-[700px] w-full font-['Plus_Jakarta_Sans'] tracking-tight">
+        <div className="min-h-screen w-full font-['Plus_Jakarta_Sans'] tracking-tight flex">
             <div className="w-full hidden md:inline-block">
                 <img
                     className="h-full object-cover"
@@ -11,8 +13,33 @@ const Login: React.FC = () => {
                 />
             </div>
 
-            <div className="w-full flex flex-col items-center justify-center bg-gradient-to-b from-orange-50/30 to-white">
-                <form className="md:w-96 w-80 flex flex-col items-center justify-center p-8">
+            <div className="w-full flex flex-col items-center justify-center bg-gradient-to-b from-orange-50/30 to-white relative">
+                {/* Block Component for Creative Use */}
+                <Block
+                    position="absolute"
+                    top="top-30"
+                    left="left-12"
+                    right="right-0"
+                    height="h-35"
+                    width="w-150"
+                    lineDirection="center"
+                    lineColor="stroke-orange-200"
+                    lineCount={17}
+                    strokeWidth={2}
+                    borderColor="border-orange-200"
+                    borderWidth="border-y"
+                    borderStyle="dashed"
+                    zIndex={1}
+                />
+
+                {/* Back Navigation */}
+                <Link to="/home" className="absolute top-6 left-6 text-slate-600 hover:text-orange-500 transition-colors z-10">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                </Link>
+
+                <form className="md:w-96 w-80 flex flex-col items-center justify-center p-8 relative z-10">
                     <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
                         Welcome to <span className="text-orange-500">FastPrompt</span>
                     </h1>

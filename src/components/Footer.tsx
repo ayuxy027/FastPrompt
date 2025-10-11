@@ -14,15 +14,15 @@ interface FooterSection {
 
 const Footer: React.FC = () => {
     const sections: Record<string, FooterSection> = {
-        product: {
-            title: "Product",
+        features: {
+            title: "Features",
             items: [
-                { label: "Prompt Expansion", href: "/prompt-expansion" },
-                { label: "JSON Generation", href: "/json-generation" },
-                { label: "UI Specifications", href: "/ui-specifications" },
-                { label: "API Integration", href: "/api" },
-                { label: "Templates", href: "/templates" },
+                { label: "Home", href: "/home" },
+                { label: "Site Builder", href: "/site-builder" },
+                { label: "JSON Editor", href: "/json-editor" },
+                { label: "API", href: "/api" },
                 { label: "Documentation", href: "/docs" },
+                { label: "Templates", href: "/templates" },
             ],
         },
         company: {

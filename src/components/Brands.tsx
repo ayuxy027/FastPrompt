@@ -2,7 +2,7 @@ import React from 'react';
 
 const Brands: React.FC = () => {
     return (
-        <div className="relative flex items-center flex-col justify-center bg-gradient-to-b from-white to-orange-50/30 text-sm text-slate-800 max-md:px-4 text-center min-h-[600px] font-['Plus_Jakarta_Sans'] tracking-tight py-16">
+        <div className="relative flex items-center flex-col justify-center bg-gradient-to-b from-white to-orange-50/30 text-sm text-slate-800 max-md:px-4 text-center min-h-[400px] font-['Plus_Jakarta_Sans'] tracking-tight py-8">
             {/* Beautiful Design Elements - Brands Lines */}
             <div className="pointer-events-none absolute inset-0">
                 {/* Left */}
@@ -47,7 +47,7 @@ const Brands: React.FC = () => {
             </div>
 
 
-            <div className="flex flex-col items-center justify-center w-full relative z-10 mb-16">
+            <div className="flex flex-col items-center justify-center w-full relative z-10 mb-8">
                 <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
                     Trusted by <span className="text-orange-500">Leading Companies</span>
                 </h2>

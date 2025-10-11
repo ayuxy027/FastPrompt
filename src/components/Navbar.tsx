@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import FastPromptLogo from '../assets/logo.png';
 
 const Navbar: React.FC = () => {
@@ -63,9 +64,9 @@ const Navbar: React.FC = () => {
                     </svg>
                 </button>
             </div>
-            <button className="max-md:hidden px-6 py-2.5 text-white bg-orange-500 font-medium hover:bg-orange-600 transition active:scale-95 rounded-full">
+            <Link to="/login" className="max-md:hidden px-6 py-2.5 text-white bg-orange-500 font-medium hover:bg-orange-600 transition active:scale-95 rounded-full">
                 Get Started
-            </button>
+            </Link>
             <button
                 aria-label="menu burger"
                 className="size-6 md:hidden"

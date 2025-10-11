@@ -1,20 +1,34 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
 import Brands from './components/Brands';
 import Reviews from './components/Reviews';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import Login from './components/auth/Login';
 import { SmoothCursor } from './components/Cursor';
+
+const HomePage = () => (
+  <>
+    <Hero />
+    <Brands />
+    <Reviews />
+    <FAQ />
+    <Footer />
+  </>
+);
 
 const App = () => {
   return (
-    <div className="font-['Plus_Jakarta_Sans'] tracking-tight">
-      <SmoothCursor />
-      <Hero />
-      <Brands />
-      <Reviews />
-      <FAQ />
-      <Footer />
-    </div>
+    <Router>
+      <div className="font-['Plus_Jakarta_Sans'] tracking-tight">
+        <SmoothCursor />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<HomePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
