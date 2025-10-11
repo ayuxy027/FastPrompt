@@ -154,7 +154,7 @@ const FAQSection: React.FC = () => {
             <div className="flex flex-col lg:flex-row lg:space-x-12">
                 {/* Left Column */}
                 <div className="mb-8 lg:mb-0 lg:w-1/3 flex flex-col justify-center">
-                    <h1 className="text-4xl font-bold text-slate-800 mb-4">FAQs</h1>
+                    <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">FAQs</h2>
                     <p className="text-lg text-slate-600">
                         Get to know all the questions that users have for us. If you can't
                         find your question here, feel free to contact us directly!

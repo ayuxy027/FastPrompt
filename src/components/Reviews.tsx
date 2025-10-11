@@ -87,14 +87,57 @@ const Reviews: React.FC = () => {
                 }
             `}</style>
 
-            <div className="py-16 bg-gradient-to-b from-orange-50/30 to-white relative overflow-hidden">
+            <div className="relative flex items-center flex-col justify-center bg-gradient-to-b from-orange-50/30 to-white text-sm text-slate-800 max-md:px-4 text-center min-h-[800px] font-['Plus_Jakarta_Sans'] tracking-tight py-16">
                 {/* Beautiful Design Elements - Reviews Lines */}
+                <div className="pointer-events-none absolute inset-0">
+                    {/* Left */}
+                    <div
+                        className="absolute inset-y-0 my-[-5rem] w-px"
+                        style={{
+                            maskImage: "linear-gradient(transparent, white 5rem)",
+                        }}
+                    >
+                        <svg className="h-full w-full" preserveAspectRatio="none">
+                            <line
+                                x1="0"
+                                y1="0"
+                                x2="0"
+                                y2="100%"
+                                className="stroke-orange-200"
+                                strokeWidth="2"
+                                strokeDasharray="3 3"
+                            />
+                        </svg>
+                    </div>
+
+                    {/* Right */}
+                    <div
+                        className="absolute inset-y-0 right-0 my-[-5rem] w-px"
+                        style={{
+                            maskImage: "linear-gradient(transparent, white 5rem)",
+                        }}
+                    >
+                        <svg className="h-full w-full" preserveAspectRatio="none">
+                            <line
+                                x1="0"
+                                y1="0"
+                                x2="0"
+                                y2="100%"
+                                className="stroke-orange-200"
+                                strokeWidth="2"
+                                strokeDasharray="3 3"
+                            />
+                        </svg>
+                    </div>
+                </div>
+
+                {/* Legendary Block Line with Slashed Lines */}
                 <Block
                     position="absolute"
                     top="top-1/2"
                     left="left-0"
                     right="right-0"
-                    height="h-180"
+                    height="h-150"
                     width="w-full"
                     lineDirection="center"
                     lineColor="stroke-orange-200"
@@ -106,10 +149,12 @@ const Reviews: React.FC = () => {
                     zIndex={1}
                 />
 
-                <div className="text-center mb-12 relative z-10">
-                    <h2 className="text-3xl font-bold text-slate-800 mb-4">Hear From Our Users</h2>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                        See what developers and designers are saying about FastPrompt's ability to transform their ideas into perfect UI designs.
+                <div className="flex flex-col items-center justify-center w-full relative z-10 mb-16">
+                    <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
+                        Loved by Developers <span className="text-orange-500">Worldwide</span>
+                    </h2>
+                    <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed max-w-3xl">
+                        See what developers and designers are saying about FastPrompt's ability to transform their ideas into perfect UI designs. Join thousands of satisfied users.
                     </p>
                 </div>
                 <div className="marquee-row w-full overflow-hidden relative z-10">

@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+/* Custom cursor styles */
+* {
+  cursor: none !important;
+}

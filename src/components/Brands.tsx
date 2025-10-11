@@ -2,9 +2,60 @@ import React from 'react';
 
 const Brands: React.FC = () => {
     return (
-        <div className="py-16 bg-gradient-to-b from-white to-orange-50/30">
-            <h3 className="text-lg font-medium text-slate-600 text-center">Trusted by world's leading companies</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mt-16 gap-8 max-w-7xl mx-auto px-4">
+        <div className="relative flex items-center flex-col justify-center bg-gradient-to-b from-white to-orange-50/30 text-sm text-slate-800 max-md:px-4 text-center min-h-[600px] font-['Plus_Jakarta_Sans'] tracking-tight py-16">
+            {/* Beautiful Design Elements - Brands Lines */}
+            <div className="pointer-events-none absolute inset-0">
+                {/* Left */}
+                <div
+                    className="absolute inset-y-0 my-[-5rem] w-px"
+                    style={{
+                        maskImage: "linear-gradient(transparent, white 5rem)",
+                    }}
+                >
+                    <svg className="h-full w-full" preserveAspectRatio="none">
+                        <line
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="100%"
+                            className="stroke-orange-200"
+                            strokeWidth="2"
+                            strokeDasharray="3 3"
+                        />
+                    </svg>
+                </div>
+
+                {/* Right */}
+                <div
+                    className="absolute inset-y-0 right-0 my-[-5rem] w-px"
+                    style={{
+                        maskImage: "linear-gradient(transparent, white 5rem)",
+                    }}
+                >
+                    <svg className="h-full w-full" preserveAspectRatio="none">
+                        <line
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="100%"
+                            className="stroke-orange-200"
+                            strokeWidth="2"
+                            strokeDasharray="3 3"
+                        />
+                    </svg>
+                </div>
+            </div>
+
+
+            <div className="flex flex-col items-center justify-center w-full relative z-10 mb-16">
+                <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
+                    Trusted by <span className="text-orange-500">Leading Companies</span>
+                </h2>
+                <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed max-w-3xl">
+                    Join thousands of developers and teams who rely on FastPrompt to power their design workflows with the world's most innovative companies.
+                </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-7xl mx-auto px-4 relative z-10">
                 {/* Windsurf */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
@@ -19,7 +70,7 @@ const Brands: React.FC = () => {
                     <img
                         src="/src/assets/img/cursor.png"
                         alt="Cursor"
-                        className="h-22 w-auto brightness-110"
+                        className="h-20 w-auto brightness-110"
                     />
                 </div>
 
@@ -55,7 +106,7 @@ const Brands: React.FC = () => {
                     <img
                         src="/src/assets/img/v0.png"
                         alt="V0"
-                        className="h-10 w-auto filter transition-all duration-300"
+                        className="h-8 w-auto filter transition-all duration-300"
                     />
                 </div>
             </div>
