@@ -124,27 +124,27 @@ const ChildIcon: ReactNode = (
 const FAQSection: React.FC = () => {
     const faqs: FAQ[] = [
         {
-            question: "How does FastPrompt work?",
+            question: "What is FastPrompt and how does it work?",
             answer:
-                "FastPrompt uses advanced AI to transform your natural language descriptions into perfect UI designs. Simply describe what you want, and our AI generates complete, ready-to-use UI components in seconds.",
+                "FastPrompt is a JSON-first, UI/UX Prompt Expansion Engine that transforms vague or minimal UI/UX prompts into fully structured, implementation-ready JSON payloads. Simply input your basic idea like 'Create a dashboard for a SaaS app' and get comprehensive JSON specifications with typography, colors, components, and responsive layouts.",
             icon: BookIcon,
         },
         {
-            question: "What makes FastPrompt different from other tools?",
+            question: "Which design tools does FastPrompt integrate with?",
             answer:
-                "FastPrompt bridges the gap between your ideas and existing one-shot design tools like v0, Bolt, and Lovable. We provide the missing link that makes the entire design process seamless and efficient.",
+                "FastPrompt works perfectly with v0.dev (Vercel's AI-powered UI generator), Bolt.new (lightning-fast app creation), and Lovable (AI-powered web app builder). The structured JSON output can be pasted directly into these tools for superior results.",
             icon: BrickWallIcon,
         },
         {
-            question: "How quickly can I get my UI designs?",
+            question: "What makes FastPrompt different from using design tools directly?",
             answer:
-                "FastPrompt generates complete UI designs in seconds! Simply input your description, and you'll have a fully functional design ready for implementation immediately.",
+                "While one-shot design tools often produce generic, incomplete designs, FastPrompt acts as an intelligent middleman that expands your prompts, enriches your ideas with detailed UI/UX considerations, ensures consistency, and provides implementation-ready specifications that tools can execute perfectly.",
             icon: TruckIcon,
         },
         {
-            question: "Can I integrate FastPrompt with my existing workflow?",
+            question: "What kind of detailed specifications does FastPrompt generate?",
             answer:
-                "Absolutely! FastPrompt is designed to work seamlessly with popular design tools and development workflows. Export your designs and integrate them into your existing projects effortlessly.",
+                "FastPrompt generates comprehensive JSON including typography systems (Jakarta Sans, Geist), color palettes with semantic moods, component variants and states, responsive breakpoints, micro-interactions, spacing systems, API endpoints, data flow logic, and authentication patterns - everything needed for professional UI development.",
             icon: ChildIcon,
         },
     ];

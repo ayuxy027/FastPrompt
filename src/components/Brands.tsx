@@ -2,7 +2,7 @@ import React from 'react';
 
 const Brands: React.FC = () => {
     return (
-        <div>
+        <div className="py-16 bg-gradient-to-b from-white to-orange-50/30">
             <h3 className="text-lg font-medium text-slate-600 text-center">Trusted by world's leading companies</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mt-16 gap-8 max-w-7xl mx-auto px-4">
                 {/* Windsurf */}
@@ -46,7 +46,7 @@ const Brands: React.FC = () => {
                     <img
                         src="/src/assets/img/lovable.jpg"
                         alt="Lovable"
-                        className="h-14 w-auto filter brightness-110 transition-all duration-300 rounded-lg bg-white p-2"
+                        className="h-20 w-auto brightness-110 rounded-lg bg-white p-2 object-cover"
                     />
                 </div>
 

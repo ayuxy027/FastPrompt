@@ -87,6 +87,12 @@ const Reviews: React.FC = () => {
             `}</style>
 
             <div className="py-16 bg-gradient-to-b from-orange-50/30 to-white">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-slate-800 mb-4">Hear From Our Users</h2>
+                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                        See what developers and designers are saying about FastPrompt's ability to transform their ideas into perfect UI designs.
+                    </p>
+                </div>
                 <div className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative">
                     <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent"></div>
                     <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5">
