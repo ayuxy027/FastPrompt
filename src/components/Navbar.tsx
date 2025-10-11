@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
                     alt="FastPrompt Logo"
                     className="h-12 w-auto"
                     style={{
-                        transform: 'scale(5)',
+                        transform: 'scale(5) translateX(-8px)',
                         transformOrigin: 'left center'
                     }}
                 />

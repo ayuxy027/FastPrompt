@@ -54,12 +54,12 @@ const Hero: React.FC = () => {
                 top="top-1/2"
                 left="left-0"
                 right="right-0"
-                height="h-20"
+                height="h-140"
                 width="w-full"
                 lineDirection="center"
                 lineColor="stroke-orange-200"
                 lineCount={17}
-                strokeWidth={1}
+                strokeWidth={0.5}
                 borderColor="border-orange-200"
                 borderWidth="border-y"
                 borderStyle="dashed"
