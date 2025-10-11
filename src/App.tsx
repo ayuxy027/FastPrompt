@@ -1,7 +1,14 @@
+import React from 'react';
+import Hero from './components/Hero';
+import Footer from './components/Footer';
+
 const App = () => {
   return (
-    <div className="text-3xl font-bold bg-red-500">App</div>
-  )
-}
+    <div className="font-['Plus_Jakarta_Sans'] tracking-tight">
+      <Hero />
+      <Footer />
+    </div>
+  );
+};
 
 export default App
