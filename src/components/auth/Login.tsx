@@ -51,12 +51,11 @@ const Login: React.FC = () => {
                         type="button"
                         className="w-full mt-8 bg-orange-100 hover:bg-orange-200 flex items-center justify-center h-12 rounded-xl border border-orange-200 transition-all duration-200"
                     >
+                        <span className="text-slate-700 font-medium mr-3">Continue with</span>
                         <img
                             src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/login/googleLogo.svg"
                             alt="Sign in with Google"
-                            className="mr-3"
                         />
-                        <span className="text-slate-700 font-medium">Continue with Google</span>
                     </button>
 
                     <div className="flex items-center gap-4 w-full my-6">
