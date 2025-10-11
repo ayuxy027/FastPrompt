@@ -150,7 +150,7 @@ const FAQSection: React.FC = () => {
     ];
 
     return (
-        <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-orange-50/30">
+        <section className="mx-auto max-w-6xl px-4 pt-16 pb-[150px] sm:px-6 lg:px-8 bg-gradient-to-b from-white to-orange-50/30">
             <div className="flex flex-col lg:flex-row lg:space-x-12">
                 {/* Left Column */}
                 <div className="mb-8 lg:mb-0 lg:w-1/3 flex flex-col justify-center">

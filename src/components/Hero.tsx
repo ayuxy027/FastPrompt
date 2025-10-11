@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
                     One Shot Your Wireframes Using<br />
                     <span className="text-orange-500">JSON Prompting</span>
                 </h1>
-                <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed">The missing link between your ideas and one-shot design tools like v0, Bolt, and Lovable.</p>
+                <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed">Create that one missing prompt between your ideas and one-shot design tools like v0, Bolt, and Lovable.</p>
                 <div className="max-w-xl w-full bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl overflow-hidden mt-6 sm:mt-8 shadow-lg">
                     <textarea
                         className="w-full p-3 sm:p-4 pb-0 resize-none outline-none bg-transparent placeholder-slate-500 font-['Plus_Jakarta_Sans'] tracking-tight text-sm sm:text-base"
