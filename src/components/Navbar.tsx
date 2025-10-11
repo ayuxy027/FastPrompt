@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className="flex items-center justify-between w-full md:px-16 lg:px-24 xl:px-32 py-4">
-            <a href="/" className="flex items-center">
+            <a href="#" className="flex items-center">
                 <img
                     src={FastPromptLogo}
                     alt="FastPrompt Logo"
@@ -37,19 +37,19 @@ const Navbar: React.FC = () => {
                 className="max-md:absolute max-md:bg-white/50 max-md:h-[785px] max-md:w-0 max-md:overflow-hidden max-md:transition-[width] max-md:duration-300 max-md:top-0 max-md:left-0 max-md:flex-col max-md:justify-center max-md:text-lg max-md:backdrop-blur flex items-center gap-8 font-medium"
                 ref={menuRef}
             >
-                <a href="/" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <a href="#" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Home
                 </a>
-                <a href="/site-builder" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <a href="#" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Site Builder
                 </a>
-                <a href="/json-editor" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <a href="#" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     JSON Editor
                 </a>
-                <a href="/api" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <a href="#" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     API
                 </a>
-                <a href="/pricing" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <a href="#" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Pricing
                 </a>
                 <button
