@@ -1,4 +1,10 @@
 import React from 'react';
+import windsurfLogo from '../assets/img/windsurf.svg';
+import cursorLogo from '../assets/img/cursor.png';
+import replitLogo from '../assets/img/replit.jpg';
+import boltLogo from '../assets/img/bolt.png';
+import lovableLogo from '../assets/img/lovable.jpg';
+import v0Logo from '../assets/img/v0.png';
 
 const Brands: React.FC = () => {
     return (
@@ -59,7 +65,7 @@ const Brands: React.FC = () => {
                 {/* Windsurf */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src="/src/assets/img/windsurf.svg"
+                        src={windsurfLogo}
                         alt="Windsurf"
                         className="h-20 w-auto brightness-110"
                     />
@@ -68,7 +74,7 @@ const Brands: React.FC = () => {
                 {/* Cursor */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src="/src/assets/img/cursor.png"
+                        src={cursorLogo}
                         alt="Cursor"
                         className="h-20 w-auto brightness-110"
                     />
@@ -77,7 +83,7 @@ const Brands: React.FC = () => {
                 {/* Replit */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src="/src/assets/img/replit.jpg"
+                        src={replitLogo}
                         alt="Replit"
                         className="h-10 w-auto filter brightness-110 transition-all duration-300 rounded"
                     />
@@ -86,7 +92,7 @@ const Brands: React.FC = () => {
                 {/* Bolt */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src="/src/assets/img/bolt.png"
+                        src={boltLogo}
                         alt="Bolt"
                         className="h-10 w-auto filter transition-all duration-300"
                     />
@@ -95,7 +101,7 @@ const Brands: React.FC = () => {
                 {/* Lovable */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src="/src/assets/img/lovable.jpg"
+                        src={lovableLogo}
                         alt="Lovable"
                         className="h-20 w-auto brightness-110 rounded-lg bg-white p-2 object-cover"
                     />
@@ -104,7 +110,7 @@ const Brands: React.FC = () => {
                 {/* V0 */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src="/src/assets/img/v0.png"
+                        src={v0Logo}
                         alt="V0"
                         className="h-8 w-auto filter transition-all duration-300"
                     />
