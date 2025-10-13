@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Block from './Block';
 
 const Hero: React.FC = () => {
+    const [query, setQuery] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (query.trim()) {
+            navigate('/chat', {
+                state: {
+                    query: query.trim(),
+                    timestamp: new Date().toISOString()
+                }
+            });
+        }
+    };
+
+    const handleSampleClick = (sampleQuery: string) => {
+        setQuery(sampleQuery);
+    };
+
     return (
         <main className="relative flex items-center flex-col justify-between bg-[url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/dot-pattern-bg.svg')] bg-cover text-sm text-gray-800 max-md:px-4 text-center h-[785px] font-['Plus_Jakarta_Sans'] tracking-tight">
             {/* Beautiful Design Elements - Hero Lines */}
@@ -74,11 +94,14 @@ const Hero: React.FC = () => {
                     <span className="text-orange-500">JSON Prompting</span>
                 </h1>
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed">Create that one missing prompt between your ideas and one-shot design tools like v0, Bolt, and Lovable.</p>
-                <div className="max-w-xl w-full bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl overflow-hidden mt-6 sm:mt-8 shadow-lg">
+                <form onSubmit={handleSubmit} className="max-w-xl w-full bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl overflow-hidden mt-6 sm:mt-8 shadow-lg">
                     <textarea
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
                         className="w-full p-3 sm:p-4 pb-0 resize-none outline-none bg-transparent placeholder-slate-500 font-['Plus_Jakarta_Sans'] tracking-tight text-sm sm:text-base"
                         placeholder="Describe your UI idea... (e.g., 'Create a SaaS dashboard for analytics')"
                         rows={3}
+                        required
                     />
                     <div className="flex items-center justify-between pb-3 sm:pb-4 px-3 sm:px-4">
                         <button className="flex items-center justify-center bg-orange-100 hover:bg-orange-200 transition p-1 rounded-full size-6"
@@ -89,20 +112,45 @@ const Hero: React.FC = () => {
                                 <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66L9.64 16.2a2 2 0 11-2.83-2.83l8.49-8.49" stroke="#EA580C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>
-                        <button className="flex items-center justify-center p-1 rounded size-6 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition" aria-label="Send" type="button">
+                        <button
+                            className="flex items-center justify-center p-1 rounded size-6 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label="Send"
+                            type="submit"
+                            disabled={!query.trim()}
+                        >
                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 5.5 5.5 1 10 5.5m-4.5 5.143V1" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>
                     </div>
-                </div>
+                </form>
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-10 text-slate-500">
-                    <p className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base">Create a modern SaaS dashboard for analytics</p>
-                    <p className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base">Design an e-commerce product catalog</p>
+                    <p
+                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        onClick={() => handleSampleClick("Create a modern SaaS dashboard for analytics")}
+                    >
+                        Create a modern SaaS dashboard for analytics
+                    </p>
+                    <p
+                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        onClick={() => handleSampleClick("Design an e-commerce product catalog")}
+                    >
+                        Design an e-commerce product catalog
+                    </p>
                     <div className="w-full h-px bg-orange-200"></div>
                     <div className="w-full h-px bg-orange-200"></div>
-                    <p className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base">Build a mobile app onboarding flow</p>
-                    <p className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base">Create an admin panel for user management</p>
+                    <p
+                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        onClick={() => handleSampleClick("Build a mobile app onboarding flow")}
+                    >
+                        Build a mobile app onboarding flow
+                    </p>
+                    <p
+                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        onClick={() => handleSampleClick("Create an admin panel for user management")}
+                    >
+                        Create an admin panel for user management
+                    </p>
                 </div>
             </div>
             <div className="pb-4 relative z-10">

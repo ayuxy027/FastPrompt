@@ -5,6 +5,7 @@ import Reviews from './components/Reviews';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Login from './components/auth/Login';
+import Chat from './components/Chat';
 import { SmoothCursor } from './components/Cursor';
 
 const HomePage = () => (
@@ -25,6 +26,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </div>
     </Router>
