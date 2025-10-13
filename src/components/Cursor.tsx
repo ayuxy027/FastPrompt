@@ -171,11 +171,13 @@ export function SmoothCursor({
         }
 
         document.body.style.cursor = "none"
+        document.documentElement.style.cursor = "none"
         window.addEventListener("mousemove", throttledMouseMove)
 
         return () => {
             window.removeEventListener("mousemove", throttledMouseMove)
-            document.body.style.cursor = "auto"
+            document.body.style.cursor = "none"
+            document.documentElement.style.cursor = "none"
             if (rafId) cancelAnimationFrame(rafId)
         }
     }, [cursorX, cursorY, rotation, scale])
