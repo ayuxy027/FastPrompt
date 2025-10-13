@@ -2,21 +2,6 @@ import React from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-// Utility for check icon
-const CheckIcon = ({ className = "" }: { className?: string }) => (
-    <svg
-        className={`w-5 h-5 ${className}`}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-    >
-        <path
-            fillRule="evenodd"
-            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-            clipRule="evenodd"
-        />
-    </svg>
-);
 
 // Arrow right icon
 const ArrowRightIcon = ({ className = "" }: { className?: string }) => (
@@ -37,9 +22,10 @@ const ArrowRightIcon = ({ className = "" }: { className?: string }) => (
 // Table/plans data
 const plans = [
     {
-        key: "starter",
-        name: "Starter",
+        key: "developers",
+        name: "Developers",
         price: 0,
+        showPrice: false,
         highlight: false,
         highlightHeader: false,
         headerClass: "",
@@ -52,20 +38,8 @@ const plans = [
     {
         key: "pro",
         name: "Pro",
-        price: 29,
-        highlight: false,
-        highlightHeader: false,
-        headerClass: "",
-        cellClass: "",
-        priceClass: "text-gray-800",
-        perMonthClass: "text-gray-500",
-        buttonClass: "text-orange-400 hover:text-orange-500",
-        description: "For professionals who need more power",
-    },
-    {
-        key: "popular",
-        name: "Team",
         price: 99,
+        showPrice: true,
         highlight: true,
         highlightHeader: true,
         headerClass: "bg-gradient-to-br from-orange-400 to-orange-500 rounded-t-xl",
@@ -74,12 +48,13 @@ const plans = [
         perMonthClass: "text-orange-100",
         buttonClass: "text-white",
         badge: "Most Popular",
-        description: "Perfect for teams and growing businesses",
+        description: "For professionals who need more power",
     },
     {
-        key: "enterprise",
-        name: "Enterprise",
-        price: 299,
+        key: "builder",
+        name: "Builder",
+        price: 1399,
+        showPrice: true,
         highlight: false,
         highlightHeader: false,
         headerClass: "",
@@ -87,59 +62,21 @@ const plans = [
         priceClass: "text-gray-800",
         perMonthClass: "text-gray-500",
         buttonClass: "text-orange-400 hover:text-orange-500",
-        description: "For large organizations with custom needs",
+        description: "For advanced builders with premium features",
     },
 ];
 
 const features: Array<{ label: string, keys: string[], header?: boolean, isButton?: boolean, isFooter?: boolean }> = [
-    { label: "JSON Specifications", keys: ["10/month", "100/month", "Unlimited", "Unlimited"] },
-    { label: "Export Formats", keys: ["JSON", "JSON + PDF", "JSON + PDF + PNG", "All formats + API"] },
-    { label: "Design Tool Integration", keys: ["v0.dev", "v0.dev + Bolt.new", "All tools", "All tools + Custom"] },
-    {
-        label: "Priority Support",
-        keys: [
-            "-",
-            <CheckIcon key="pro" className="text-orange-400" />,
-            <CheckIcon key="popular" className="text-white" />,
-            <CheckIcon key="enterprise" className="text-orange-400" />,
-        ] as any
-    },
-    {
-        label: "Team Collaboration",
-        keys: [
-            "-",
-            "-",
-            <CheckIcon key="popular" className="text-white" />,
-            <CheckIcon key="enterprise" className="text-orange-400" />,
-        ] as any
-    },
-    {
-        label: "Custom Templates",
-        keys: [
-            "-",
-            "-",
-            <CheckIcon key="popular" className="text-white" />,
-            <CheckIcon key="enterprise" className="text-orange-400" />,
-        ] as any
-    },
-    {
-        label: "API Access",
-        keys: [
-            "-",
-            "-",
-            "-",
-            <CheckIcon key="enterprise" className="text-orange-400" />,
-        ] as any
-    },
-    {
-        label: "White-label Options",
-        keys: [
-            "-",
-            "-",
-            "-",
-            <CheckIcon key="enterprise" className="text-orange-400" />,
-        ] as any
-    },
+    { label: "Queries per Month", keys: ["10", "100", "200"] },
+    { label: "AI Edits per Month", keys: ["3", "10", "15"] },
+    { label: "Available Models", keys: ["Llama 3.1 Distilled", "5 Models + Thinking", "10 Models + Thinking + Grok 4 Fast"] },
+    { label: "Site Builder (Claude 4.5 + GPT 5)", keys: ["Not Available", "Not Available", "Yes"] },
+    { label: "Prompt Character Limit", keys: ["100 chars", "300 chars", "Unlimited"] },
+    { label: "Support", keys: ["Email Support", "WhatsApp Group", "Priority DM 24/7"] },
+    { label: "File Attachments", keys: ["No", "Yes", "Yes"] },
+    { label: "Advanced Analytics", keys: ["No", "Yes", "Yes"] },
+    { label: "Export Options", keys: ["Basic", "PDF + JSON", "All Formats + API"] },
+    { label: "Priority Processing", keys: ["No", "Yes", "Yes"] },
 ];
 
 
@@ -155,7 +92,7 @@ const Pricing: React.FC = () => {
                             Simple, Transparent <span className="text-orange-400">Pricing</span>
                         </h2>
                         <p className="mt-6 text-lg leading-relaxed text-gray-600 font-['Plus_Jakarta_Sans'] tracking-tight">
-                            Choose the perfect plan for your JSON prompt generation needs. Start free and scale as you grow.
+                            Choose the perfect plan for your AI prompt generation needs. Start free and scale as you grow.
                         </p>
                     </div>
 
@@ -181,11 +118,13 @@ const Pricing: React.FC = () => {
                                                     </span>
                                                 )}
                                                 <p className={`mt-6 text-5xl font-bold ${plan.priceClass || ""}`}>
-                                                    ${plan.price}
+                                                    {plan.showPrice ? `₹${plan.price}` : "Free"}
                                                 </p>
-                                                <p className={`mt-2 text-base font-normal ${plan.perMonthClass || "text-gray-500"}`}>
-                                                    Per month
-                                                </p>
+                                                {plan.showPrice && (
+                                                    <p className={`mt-2 text-base font-normal ${plan.perMonthClass || "text-gray-500"}`}>
+                                                        Per month
+                                                    </p>
+                                                )}
                                                 <p className="mt-3 text-sm text-gray-500 max-w-[120px] mx-auto">
                                                     {plan.description}
                                                 </p>
@@ -276,11 +215,13 @@ const Pricing: React.FC = () => {
                                             </div>
                                             <div className="text-right">
                                                 <p className={`text-3xl font-bold ${plan.priceClass || ""}`}>
-                                                    ${plan.price}
+                                                    {plan.showPrice ? `₹${plan.price}` : "Free"}
                                                 </p>
-                                                <p className={`text-sm ${plan.perMonthClass || "text-gray-500"}`}>
-                                                    Per month
-                                                </p>
+                                                {plan.showPrice && (
+                                                    <p className={`text-sm ${plan.perMonthClass || "text-gray-500"}`}>
+                                                        Per month
+                                                    </p>
+                                                )}
                                             </div>
                                         </div>
 
