@@ -35,41 +35,42 @@ const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ isOpen, onClose }) =>
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ duration: 0.3 }}
-                        className="bg-white rounded-2xl shadow-2xl max-w-sm w-full border border-orange-100 overflow-hidden relative"
+                        className="bg-white rounded-2xl shadow-2xl max-w-sm w-full border border-orange-100 overflow-hidden relative font-['Plus_Jakarta_Sans'] tracking-tight"
                     >
                         {/* Block Background */}
                         <div className="absolute top-0 left-0 right-0 h-32 z-0 opacity-20">
                             <Block
                                 position="absolute"
-                                top="top-0"
+                                top="top-28"
                                 left="left-0"
                                 right="right-0"
-                                height="h-32"
+                                height="h-28"
                                 width="w-full"
                                 lineDirection="center"
-                                lineColor="stroke-orange-300"
-                                lineCount={12}
-                                strokeWidth={1}
+                                lineColor="stroke-orange-400"
+                                lineCount={17}
+                                strokeWidth={2}
                                 zIndex={1}
                             />
                         </div>
 
                         {/* Header */}
-                        <div className="relative z-10 bg-gradient-to-br text-black">
+                        <div className="relative z-10 p-6 text-gray-800">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h3 className="text-xl font-bold font-['Plus_Jakarta_Sans'] tracking-tight">
+                                    <h3 className="text-xl font-bold font-['Plus_Jakarta_Sans'] tracking-tight text-gray-800">
                                         Upgrade to PRO
                                     </h3>
-                                    <p className="text-grey-800 text-sm">
+                                    <p className="text-gray-600 text-sm font-['Plus_Jakarta_Sans'] tracking-tight mt-1">
                                         Unlock Attach Images and Files
                                     </p>
                                 </div>
                                 <button
                                     onClick={onClose}
-                                    className="p-1 hover:bg-orange-400 rounded-lg transition-colors"
+                                    className="p-1 hover:bg-orange-100 rounded-lg transition-colors"
+                                    aria-label="Close modal"
                                 >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
@@ -77,42 +78,34 @@ const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ isOpen, onClose }) =>
                         </div>
 
                         {/* Content */}
-                        <div className="relative z-10 p-6">
+                        <div className="relative z-10 p-6 pb-6">
                             <div className="text-center mb-6">
                                 <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                                     </svg>
                                 </div>
-                                <h4 className="text-lg font-semibold text-gray-800 mb-2 font-['Plus_Jakarta_Sans'] tracking-tight">
+                                <h4 className="text-lg font-semibold text-gray-800 mb-3 font-['Plus_Jakarta_Sans'] tracking-tight">
                                     Attach Images and Files
                                 </h4>
-                                <p className="text-gray-600 text-sm">
+                                <p className="text-gray-600 text-sm font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed">
                                     This feature is available with our PRO plan. Upload images and files to enhance your JSON specifications.
                                 </p>
                             </div>
 
-                            {/* Pricing */}
-                            <div className="rounded-xl p-4 mb-6">
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-orange-600 mb-1">$29</div>
-                                    <div className="text-sm text-orange-700">per month</div>
-                                </div>
-                            </div>
-
                             {/* Action Buttons */}
-                            <div className="space-y-3">
+                            <div className="flex gap-3">
                                 <button
                                     onClick={handleUpgradeClick}
-                                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+                                    className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-200 font-['Plus_Jakarta_Sans'] tracking-tight"
                                 >
                                     Upgrade to PRO
                                 </button>
                                 <button
                                     onClick={onClose}
-                                    className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors"
+                                    className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-lg font-medium transition-colors font-['Plus_Jakarta_Sans'] tracking-tight"
                                 >
-                                    Maybe Later
+                                    Not Now
                                 </button>
                             </div>
                         </div>
