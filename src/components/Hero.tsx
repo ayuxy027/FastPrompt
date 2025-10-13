@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Block from './Block';
+import ProUpgradeModal from './ProUpgradeModal';
 
 const Hero: React.FC = () => {
     const [query, setQuery] = useState('');
+    const [showProModal, setShowProModal] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -21,6 +23,10 @@ const Hero: React.FC = () => {
 
     const handleSampleClick = (sampleQuery: string) => {
         setQuery(sampleQuery);
+    };
+
+    const handleAttachFile = () => {
+        setShowProModal(true);
     };
 
     return (
@@ -98,13 +104,23 @@ const Hero: React.FC = () => {
                     <textarea
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey) {
+                                e.preventDefault();
+                                if (query.trim()) {
+                                    handleSubmit(e as any);
+                                }
+                            }
+                        }}
                         className="w-full p-3 sm:p-4 pb-0 resize-none outline-none bg-transparent placeholder-slate-500 font-['Plus_Jakarta_Sans'] tracking-tight text-sm sm:text-base"
                         placeholder="Describe your UI idea... (e.g., 'Create a SaaS dashboard for analytics')"
                         rows={3}
                         required
                     />
                     <div className="flex items-center justify-between pb-3 sm:pb-4 px-3 sm:px-4">
-                        <button className="flex items-center justify-center bg-orange-100 hover:bg-orange-200 transition p-1 rounded-full size-6"
+                        <button
+                            onClick={handleAttachFile}
+                            className="flex items-center justify-center bg-orange-100 hover:bg-orange-200 transition p-1 rounded-full size-6"
                             aria-label="Attach File"
                             type="button"
                         >
@@ -156,6 +172,12 @@ const Hero: React.FC = () => {
             <div className="pb-4 relative z-10">
                 {/* Spacer to maintain hero height */}
             </div>
+
+            {/* Pro Upgrade Modal */}
+            <ProUpgradeModal
+                isOpen={showProModal}
+                onClose={() => setShowProModal(false)}
+            />
         </main>
     );
 };

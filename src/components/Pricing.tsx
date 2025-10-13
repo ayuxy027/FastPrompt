@@ -1,363 +1,355 @@
 import React from "react";
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 // Utility for check icon
 const CheckIcon = ({ className = "" }: { className?: string }) => (
-  <svg
-    className={`w-5 h-5 mx-auto ${className}`}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path
-      fillRule="evenodd"
-      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-      clipRule="evenodd"
-    />
-  </svg>
+    <svg
+        className={`w-5 h-5 ${className}`}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+    >
+        <path
+            fillRule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clipRule="evenodd"
+        />
+    </svg>
 );
 
 // Arrow right icon
 const ArrowRightIcon = ({ className = "" }: { className?: string }) => (
-  <svg
-    className={`w-4 h-4 ml-1 ${className}`}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path
-      fillRule="evenodd"
-      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-      clipRule="evenodd"
-    />
-  </svg>
+    <svg
+        className={`w-4 h-4 ml-1 ${className}`}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+    >
+        <path
+            fillRule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clipRule="evenodd"
+        />
+    </svg>
 );
 
 // Table/plans data
 const plans = [
-  {
-    key: "free",
-    name: "Free",
-    price: 0,
-    highlight: false,
-    highlightHeader: false,
-    headerClass: "",
-    cellClass: "",
-    priceClass: "",
-    perMonthClass: "",
-    buttonClass: "text-blue-600 hover:text-blue-700",
-  },
-  {
-    key: "team",
-    name: "Team",
-    price: 99,
-    highlight: false,
-    highlightHeader: false,
-    headerClass: "",
-    cellClass: "",
-    priceClass: "",
-    perMonthClass: "",
-    buttonClass: "text-blue-600 hover:text-blue-700",
-  },
-  {
-    key: "popular",
-    name: "Popular",
-    price: 150,
-    highlight: true,
-    highlightHeader: true,
-    headerClass: "bg-gray-900 rounded-t-xl",
-    cellClass: "text-white bg-gray-900 border-b border-white/20",
-    priceClass: "text-white",
-    perMonthClass: "text-gray-200",
-    buttonClass: "text-white",
-    badge: "Popular",
-  },
-  {
-    key: "enterprise",
-    name: "Enterprise",
-    price: 490,
-    highlight: false,
-    highlightHeader: false,
-    headerClass: "",
-    cellClass: "",
-    priceClass: "",
-    perMonthClass: "",
-    buttonClass: "text-blue-600 hover:text-blue-700",
-  },
+    {
+        key: "starter",
+        name: "Starter",
+        price: 0,
+        highlight: false,
+        highlightHeader: false,
+        headerClass: "",
+        cellClass: "",
+        priceClass: "text-gray-800",
+        perMonthClass: "text-gray-500",
+        buttonClass: "text-orange-600 hover:text-orange-700",
+        description: "Perfect for getting started with FastPrompt",
+    },
+    {
+        key: "pro",
+        name: "Pro",
+        price: 29,
+        highlight: false,
+        highlightHeader: false,
+        headerClass: "",
+        cellClass: "",
+        priceClass: "text-gray-800",
+        perMonthClass: "text-gray-500",
+        buttonClass: "text-orange-600 hover:text-orange-700",
+        description: "For professionals who need more power",
+    },
+    {
+        key: "popular",
+        name: "Team",
+        price: 99,
+        highlight: true,
+        highlightHeader: true,
+        headerClass: "bg-gradient-to-br from-orange-500 to-orange-600 rounded-t-xl",
+        cellClass: "text-white bg-gradient-to-br from-orange-500 to-orange-600 border-b border-orange-400/30",
+        priceClass: "text-white",
+        perMonthClass: "text-orange-100",
+        buttonClass: "text-white",
+        badge: "Most Popular",
+        description: "Perfect for teams and growing businesses",
+    },
+    {
+        key: "enterprise",
+        name: "Enterprise",
+        price: 299,
+        highlight: false,
+        highlightHeader: false,
+        headerClass: "",
+        cellClass: "",
+        priceClass: "text-gray-800",
+        perMonthClass: "text-gray-500",
+        buttonClass: "text-orange-600 hover:text-orange-700",
+        description: "For large organizations with custom needs",
+    },
 ];
 
 const features: Array<{ label: string, keys: string[], header?: boolean, isButton?: boolean, isFooter?: boolean }> = [
-  { label: "Website number", keys: ["01", "10", "50", "Unlimited"] },
-  { label: "Server storage", keys: ["100 GB", "500 GB", "1 TB", "Unlimited"] },
-  { label: "Database", keys: ["-", "15", "Unlimited", "Unlimited"] },
-  {
-    label: "Unmetered Bandwidth",
-    keys: [
-      "-",
-      <CheckIcon key="team" />,
-      <CheckIcon key="popular" />,
-      <CheckIcon key="enterprise" />,
-    ] as any
-  },
-  {
-    label: "SSD Disk",
-    keys: [
-      "-",
-      "-",
-      <CheckIcon key="popular" />,
-      <CheckIcon key="enterprise" />,
-    ] as any
-  },
-  {
-    label: "VCPUS Fontworld",
-    keys: [
-      "-",
-      "-",
-      <CheckIcon key="popular" />,
-      <CheckIcon key="enterprise" />,
-    ] as any
-  },
-  {
-    label: "WordPress install",
-    keys: [
-      "-",
-      "-",
-      <CheckIcon key="popular" />,
-      <CheckIcon key="enterprise" />,
-    ] as any
-  },
-  {
-    label: "Server speed",
-    keys: [
-      "-",
-      "-",
-      <CheckIcon key="popular" />,
-      <CheckIcon key="enterprise" />,
-    ] as any
-  },
+    { label: "JSON Specifications", keys: ["10/month", "100/month", "Unlimited", "Unlimited"] },
+    { label: "Export Formats", keys: ["JSON", "JSON + PDF", "JSON + PDF + PNG", "All formats + API"] },
+    { label: "Design Tool Integration", keys: ["v0.dev", "v0.dev + Bolt.new", "All tools", "All tools + Custom"] },
+    {
+        label: "Priority Support",
+        keys: [
+            "-",
+            <CheckIcon key="pro" className="text-orange-500" />,
+            <CheckIcon key="popular" className="text-white" />,
+            <CheckIcon key="enterprise" className="text-orange-500" />,
+        ] as any
+    },
+    {
+        label: "Team Collaboration",
+        keys: [
+            "-",
+            "-",
+            <CheckIcon key="popular" className="text-white" />,
+            <CheckIcon key="enterprise" className="text-orange-500" />,
+        ] as any
+    },
+    {
+        label: "Custom Templates",
+        keys: [
+            "-",
+            "-",
+            <CheckIcon key="popular" className="text-white" />,
+            <CheckIcon key="enterprise" className="text-orange-500" />,
+        ] as any
+    },
+    {
+        label: "API Access",
+        keys: [
+            "-",
+            "-",
+            "-",
+            <CheckIcon key="enterprise" className="text-orange-500" />,
+        ] as any
+    },
+    {
+        label: "White-label Options",
+        keys: [
+            "-",
+            "-",
+            "-",
+            <CheckIcon key="enterprise" className="text-orange-500" />,
+        ] as any
+    },
 ];
 
-const mobileFeatures = [
-  {
-    label: "Website number",
-    values: ["01", "10", "100", "Unlimited"],
-  },
-  {
-    label: "Server storage",
-    values: ["100 GB", "500 GB", "1 TB", "Unlimited"],
-  },
-  {
-    label: "Database",
-    values: ["-", "15", "Unlimited", "Unlimited"],
-  },
-  {
-    label: "Unmetered bandwidth",
-    values: [
-      "-",
-      <CheckIcon key="mobile_team" />,
-      <CheckIcon key="mobile_popular" />,
-      <CheckIcon key="mobile_enterprise" />,
-    ] as any,
-  },
-  {
-    label: "SSD Disk",
-    values: [
-      "-",
-      <CheckIcon key="mobile_team" />,
-      <CheckIcon key="mobile_popular" />,
-      <CheckIcon key="mobile_enterprise" />,
-    ] as any,
-  },
-  {
-    label: "VCPUS Fontworld",
-    values: [
-      "-",
-      <CheckIcon key="mobile_team" />,
-      <CheckIcon key="mobile_popular" />,
-      <CheckIcon key="mobile_enterprise" />,
-    ] as any,
-  },
-  {
-    label: "WordPress install",
-    values: [
-      "-",
-      <CheckIcon key="mobile_team" />,
-      <CheckIcon key="mobile_popular" />,
-      <CheckIcon key="mobile_enterprise" />,
-    ] as any,
-  },
-];
 
 const Pricing: React.FC = () => {
-  return (
-    <section className="py-10 bg-white sm:py-16 lg:py-24">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-black lg:text-5xl sm:text-5xl">
-            Pricing &amp; Plans
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint.
-            Velit officia consequat duis enim velit mollit.
-          </p>
-        </div>
+    return (
+        <div className="min-h-screen bg-gray-50 font-['Plus_Jakarta_Sans'] tracking-tight">
+            <Navbar />
 
-        {/* lg+ (table) */}
-        <div className="hidden mt-16 lg:block">
-          <table className="w-full">
-            <thead>
-              <tr>
-                <th className="py-8 pr-4"></th>
-                {plans.map((plan) => (
-                  <th
-                    key={plan.key}
-                    className={`px-4 py-8 text-center ${plan.headerClass || ""}`}
-                  >
-                    {plan.highlightHeader ? (
-                      <span className="px-4 py-2 text-base font-medium text-white bg-blue-600 rounded-full">
-                        {plan.badge}
-                      </span>
-                    ) : (
-                      <span className="text-base font-medium text-blue-600">
-                        {plan.name}
-                      </span>
-                    )}
-                    <p
-                      className={`mt-6 text-6xl font-bold ${
-                        plan.priceClass || ""
-                      }`}
-                    >
-                      ${plan.price}
-                    </p>
-                    <p
-                      className={`mt-2 text-base font-normal ${
-                        plan.perMonthClass || "text-gray-500"
-                      }`}
-                    >
-                      Per month
-                    </p>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {features.map((feature) => (
-                <tr key={feature.label}>
-                  <td className="py-4 pr-4 font-medium border-b border-gray-200">
-                    {feature.label}
-                  </td>
-                  {plans.map((plan, cIdx) => (
-                    <td
-                      key={plan.key}
-                      className={
-                        [
-                          "px-4 py-4 text-center border-b",
-                          plan.highlight
-                            ? "text-white bg-gray-900 border-white/20"
-                            : "border-gray-200",
-                          plan.cellClass || "",
-                        ].join(" ")
-                      }
-                    >
-                      {
-                        // If JSX, render as is; else as text
-                        React.isValidElement(feature.keys[cIdx])
-                          ? feature.keys[cIdx]
-                          : feature.keys[cIdx]
-                      }
-                    </td>
-                  ))}
-                </tr>
-              ))}
-              <tr>
-                <td className="py-6 pr-4"></td>
-                {plans.map((plan) => (
-                  <td
-                    key={plan.key}
-                    className={`px-4 py-6 text-center ${
-                      plan.highlight
-                        ? "text-white bg-yellow-500 rounded-b-xl"
-                        : ""
-                    }`}
-                  >
-                    <a
-                      href="#"
-                      title=""
-                      className={`inline-flex items-center font-semibold ${
-                        plan.buttonClass
-                      } ${plan.highlight ? "" : "hover:text-blue-700"}`}
-                    >
-                      Get Started
-                      <ArrowRightIcon />
-                    </a>
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+            <section className="py-10 bg-white sm:py-16 lg:py-24">
+                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h2 className="text-4xl font-bold text-gray-800 lg:text-5xl sm:text-5xl font-['Plus_Jakarta_Sans'] tracking-tight">
+                            Simple, Transparent <span className="text-orange-500">Pricing</span>
+                        </h2>
+                        <p className="mt-6 text-lg leading-relaxed text-gray-600 font-['Plus_Jakarta_Sans'] tracking-tight">
+                            Choose the perfect plan for your JSON prompt generation needs. Start free and scale as you grow.
+                        </p>
+                    </div>
 
-      {/* xs to lg */}
-      <div className="block mt-12 border-t border-b border-gray-200 divide-y divide-gray-200 lg:hidden">
-        {/* mobile header tiles */}
-        <div className="grid grid-cols-4 text-center divide-x divide-gray-200">
-          {plans.map((plan) => (
-            <div className="px-2 py-2" key={plan.key}>
-              <span className="text-sm font-medium text-blue-600">
-                {plan.badge ?? plan.name}
-              </span>
-              <p className="mt-2 text-xl font-bold">${plan.price}</p>
-              <span className="mt-1 text-sm font-normal text-gray-500">
-                Per month
-              </span>
-            </div>
-          ))}
-        </div>
-        {/* features */}
-        {mobileFeatures.map((feature) => (
-          <React.Fragment key={feature.label}>
-            <div className="px-2 py-4 sm:px-4">
-              <p className="font-semibold">{feature.label}</p>
-            </div>
-            <div className="grid grid-cols-4 text-center divide-x divide-gray-200">
-              {feature.values.map((val: any, i: number) => (
-                <div className="px-2 py-2" key={i}>
-                  {React.isValidElement(val) ? val : val}
+                    {/* lg+ (table) */}
+                    <div className="hidden mt-16 lg:block">
+                        <div className="overflow-hidden rounded-2xl shadow-xl border border-orange-100">
+                            <table className="w-full bg-white">
+                                <thead>
+                                    <tr>
+                                        <th className="py-8 pr-4 pl-8"></th>
+                                        {plans.map((plan) => (
+                                            <th
+                                                key={plan.key}
+                                                className={`px-4 py-8 text-center ${plan.headerClass || ""}`}
+                                            >
+                                                {plan.highlightHeader ? (
+                                                    <span className="px-4 py-2 text-sm font-medium text-white bg-orange-400 rounded-full">
+                                                        {plan.badge}
+                                                    </span>
+                                                ) : (
+                                                    <span className="text-base font-medium text-orange-600">
+                                                        {plan.name}
+                                                    </span>
+                                                )}
+                                                <p className={`mt-6 text-5xl font-bold ${plan.priceClass || ""}`}>
+                                                    ${plan.price}
+                                                </p>
+                                                <p className={`mt-2 text-base font-normal ${plan.perMonthClass || "text-gray-500"}`}>
+                                                    Per month
+                                                </p>
+                                                <p className="mt-3 text-sm text-gray-500 max-w-[120px] mx-auto">
+                                                    {plan.description}
+                                                </p>
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {features.map((feature) => (
+                                        <tr key={feature.label} className="hover:bg-orange-50/30 transition-colors">
+                                            <td className="py-4 pr-4 pl-8 font-medium text-gray-700 border-b border-gray-100">
+                                                {feature.label}
+                                            </td>
+                                            {plans.map((plan, cIdx) => (
+                                                <td
+                                                    key={plan.key}
+                                                    className={
+                                                        [
+                                                            "px-4 py-4 text-center border-b border-gray-100",
+                                                            plan.highlight
+                                                                ? "text-white bg-gradient-to-br from-orange-500 to-orange-600 border-orange-400/30"
+                                                                : "border-gray-100",
+                                                            plan.cellClass || "",
+                                                        ].join(" ")
+                                                    }
+                                                >
+                                                    {
+                                                        // If JSX, render as is; else as text
+                                                        React.isValidElement(feature.keys[cIdx])
+                                                            ? feature.keys[cIdx]
+                                                            : feature.keys[cIdx]
+                                                    }
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                    <tr>
+                                        <td className="py-6 pr-4 pl-8"></td>
+                                        {plans.map((plan) => (
+                                            <td
+                                                key={plan.key}
+                                                className={`px-4 py-6 text-center ${plan.highlight
+                                                    ? "text-white bg-gradient-to-br from-orange-600 to-orange-700"
+                                                    : ""
+                                                    }`}
+                                            >
+                                                <a
+                                                    href="#"
+                                                    title=""
+                                                    className={`inline-flex items-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 ${plan.highlight
+                                                        ? "bg-white text-orange-600 hover:bg-orange-50"
+                                                        : "bg-orange-500 text-white hover:bg-orange-600"
+                                                        }`}
+                                                >
+                                                    Get Started
+                                                    <ArrowRightIcon />
+                                                </a>
+                                            </td>
+                                        ))}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    {/* xs to lg */}
+                    <div className="block mt-12 lg:hidden">
+                        <div className="space-y-6">
+                            {plans.map((plan) => (
+                                <div
+                                    key={plan.key}
+                                    className={`rounded-2xl shadow-lg border-2 overflow-hidden transition-all duration-200 ${plan.highlight
+                                        ? "border-orange-500 bg-gradient-to-br from-orange-500 to-orange-600 text-white"
+                                        : "border-orange-100 bg-white"
+                                        }`}
+                                >
+                                    <div className="p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div>
+                                                <h3 className={`text-xl font-bold ${plan.highlight ? "text-white" : "text-gray-800"}`}>
+                                                    {plan.name}
+                                                </h3>
+                                                {plan.badge && (
+                                                    <span className="inline-block px-3 py-1 mt-1 text-xs font-medium bg-orange-400 text-white rounded-full">
+                                                        {plan.badge}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <div className="text-right">
+                                                <p className={`text-3xl font-bold ${plan.priceClass || ""}`}>
+                                                    ${plan.price}
+                                                </p>
+                                                <p className={`text-sm ${plan.perMonthClass || "text-gray-500"}`}>
+                                                    Per month
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <p className={`text-sm mb-6 ${plan.highlight ? "text-orange-100" : "text-gray-600"}`}>
+                                            {plan.description}
+                                        </p>
+
+                                        <div className="space-y-3 mb-6">
+                                            {features.map((feature) => (
+                                                <div key={feature.label} className="flex items-center justify-between">
+                                                    <span className={`text-sm font-medium ${plan.highlight ? "text-orange-100" : "text-gray-600"}`}>
+                                                        {feature.label}
+                                                    </span>
+                                                    <span className={`text-sm ${plan.highlight ? "text-white" : "text-gray-800"}`}>
+                                                        {React.isValidElement(feature.keys[plans.indexOf(plan)])
+                                                            ? feature.keys[plans.indexOf(plan)]
+                                                            : feature.keys[plans.indexOf(plan)]}
+                                                    </span>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <a
+                                            href="#"
+                                            title=""
+                                            className={`block w-full text-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 ${plan.highlight
+                                                ? "bg-white text-orange-600 hover:bg-orange-50"
+                                                : "bg-orange-500 text-white hover:bg-orange-600"
+                                                }`}
+                                        >
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* FAQ Section */}
+                    <div className="mt-20">
+                        <div className="max-w-3xl mx-auto text-center mb-12">
+                            <h3 className="text-2xl font-bold text-gray-800 font-['Plus_Jakarta_Sans'] tracking-tight">
+                                Frequently Asked Questions
+                            </h3>
+                        </div>
+
+                        <div className="max-w-4xl mx-auto space-y-4">
+                            <div className="bg-white rounded-xl border border-orange-100 p-6">
+                                <h4 className="font-semibold text-gray-800 mb-2">Can I change plans anytime?</h4>
+                                <p className="text-gray-600 text-sm">Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
+                            </div>
+
+                            <div className="bg-white rounded-xl border border-orange-100 p-6">
+                                <h4 className="font-semibold text-gray-800 mb-2">What happens if I exceed my limits?</h4>
+                                <p className="text-gray-600 text-sm">We'll notify you when you're approaching your limits. You can upgrade anytime or wait for the next billing cycle.</p>
+                            </div>
+
+                            <div className="bg-white rounded-xl border border-orange-100 p-6">
+                                <h4 className="font-semibold text-gray-800 mb-2">Do you offer refunds?</h4>
+                                <p className="text-gray-600 text-sm">Yes, we offer a 30-day money-back guarantee on all paid plans. No questions asked.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              ))}
-            </div>
-          </React.Fragment>
-        ))}
-        {/* CTA Buttons, matches original last row */}
-        <div className="grid grid-cols-4 text-center divide-x divide-gray-200">
-          {plans.map((plan, idx) => (
-            <div
-              key={plan.key}
-              className={`px-1 ${
-                idx === plans.length - 1 ? "pt-2 pb-4" : "py-2"
-              } sm:px-4`}
-            >
-              <span className="text-sm font-medium text-blue-600">
-                {plan.badge ?? plan.name}
-              </span>
-              <p className="mt-2 text-xl font-bold">${plan.price}</p>
-              <span className="mt-1 text-sm font-normal text-gray-500">
-                Per month
-              </span>
-              <a
-                href="#"
-                title=""
-                role="button"
-                className="flex items-center justify-center w-full px-1 py-2 mt-5 text-sm text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-              >
-                Get Started
-              </a>
-            </div>
-          ))}
+            </section>
+
+            <Footer />
         </div>
-      </div>
-    </section>
-  );
+    );
 };
 
 export default Pricing;

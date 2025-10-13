@@ -62,30 +62,12 @@ const Brands: React.FC = () => {
                 </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-7xl mx-auto px-4 relative z-10">
-                {/* Windsurf */}
+                {/* V0 */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src={windsurfLogo}
-                        alt="Windsurf"
-                        className="h-20 w-auto brightness-110"
-                    />
-                </div>
-
-                {/* Cursor */}
-                <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
-                    <img
-                        src={cursorLogo}
-                        alt="Cursor"
-                        className="h-20 w-auto brightness-110"
-                    />
-                </div>
-
-                {/* Replit */}
-                <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
-                    <img
-                        src={replitLogo}
-                        alt="Replit"
-                        className="h-10 w-auto filter brightness-110 transition-all duration-300 rounded"
+                        src={v0Logo}
+                        alt="V0"
+                        className="h-8 w-auto filter transition-all duration-300"
                     />
                 </div>
 
@@ -107,12 +89,30 @@ const Brands: React.FC = () => {
                     />
                 </div>
 
-                {/* V0 */}
+                {/* Cursor */}
                 <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
                     <img
-                        src={v0Logo}
-                        alt="V0"
-                        className="h-8 w-auto filter transition-all duration-300"
+                        src={cursorLogo}
+                        alt="Cursor"
+                        className="h-20 w-auto brightness-110"
+                    />
+                </div>
+
+                {/* Windsurf */}
+                <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
+                    <img
+                        src={windsurfLogo}
+                        alt="Windsurf"
+                        className="h-20 w-auto brightness-110"
+                    />
+                </div>
+
+                {/* Replit */}
+                <div className="flex items-center justify-center h-24 w-full bg-white rounded-xl border border-orange-200 transition-all duration-300">
+                    <img
+                        src={replitLogo}
+                        alt="Replit"
+                        className="h-10 w-auto filter brightness-110 transition-all duration-300 rounded"
                     />
                 </div>
             </div>

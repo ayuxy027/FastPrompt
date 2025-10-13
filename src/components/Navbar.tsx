@@ -46,10 +46,7 @@ const Navbar: React.FC = () => {
                 <Link to="/" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     JSON Editor
                 </Link>
-                <Link to="/" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
-                    API
-                </Link>
-                <Link to="/" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <Link to="/pricing" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Pricing
                 </Link>
                 <button
