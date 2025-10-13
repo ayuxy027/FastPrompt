@@ -150,15 +150,15 @@ const Pricing: React.FC = () => {
                                                         {plan.name}
                                                     </span>
                                                 )}
-                                                <p className={`mt-6 text-5xl font-bold ${plan.priceClass || ""}`}>
+                                                <p className={`mt-6 text-5xl font-bold ${plan.priceClass || ""} relative z-20`}>
                                                     {plan.showPrice ? `₹${plan.price}` : "Free"}
                                                 </p>
                                                 {plan.showPrice && (
-                                                    <p className={`mt-2 text-base font-normal ${plan.perMonthClass || "text-gray-500"}`}>
+                                                    <p className={`mt-2 text-base font-normal ${plan.perMonthClass || "text-gray-500"} relative z-20`}>
                                                         Per month
                                                     </p>
                                                 )}
-                                                <p className="mt-3 text-sm text-gray-500 max-w-[120px] mx-auto">
+                                                <p className="mt-3 text-sm text-gray-500 max-w-[120px] mx-auto relative z-20">
                                                     {plan.description}
                                                 </p>
                                             </th>
@@ -168,7 +168,7 @@ const Pricing: React.FC = () => {
                                 <tbody>
                                     {features.map((feature) => (
                                         <tr key={feature.label} className="hover:bg-orange-50/30 transition-colors">
-                                            <td className="py-4 pr-4 pl-8 font-medium text-gray-700 border-b border-gray-100">
+                                            <td className="py-4 pr-4 pl-8 font-medium text-gray-700 border-b border-gray-100 relative z-20">
                                                 {feature.label}
                                             </td>
                                             {plans.map((plan, cIdx) => (
@@ -176,7 +176,7 @@ const Pricing: React.FC = () => {
                                                     key={plan.key}
                                                     className={
                                                         [
-                                                            "px-4 py-4 text-center border-b border-gray-100",
+                                                            "px-4 py-4 text-center border-b border-gray-100 relative z-20",
                                                             plan.highlight
                                                                 ? "text-white bg-gradient-to-br from-orange-400 to-orange-500 border-orange-400/30"
                                                                 : "border-gray-100",
@@ -199,7 +199,7 @@ const Pricing: React.FC = () => {
                                         {plans.map((plan) => (
                                             <td
                                                 key={plan.key}
-                                                className={`px-4 py-6 text-center ${plan.highlight
+                                                className={`px-4 py-6 text-center relative z-20 ${plan.highlight
                                                     ? "text-white bg-gradient-to-br from-orange-500 to-orange-600"
                                                     : ""
                                                     }`}
@@ -207,7 +207,7 @@ const Pricing: React.FC = () => {
                                                 <a
                                                     href="#"
                                                     title=""
-                                                    className={`inline-flex items-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 ${plan.highlight
+                                                    className={`inline-flex items-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 relative z-20 ${plan.highlight
                                                         ? "bg-white text-orange-400 hover:bg-orange-50"
                                                         : "bg-orange-400 text-white hover:bg-orange-500"
                                                         }`}
@@ -279,7 +279,7 @@ const Pricing: React.FC = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className={`block w-full text-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 ${plan.highlight
+                                            className={`block w-full text-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 relative z-20 ${plan.highlight
                                                 ? "bg-white text-orange-400 hover:bg-orange-50"
                                                 : "bg-orange-400 text-white hover:bg-orange-500"
                                                 }`}
