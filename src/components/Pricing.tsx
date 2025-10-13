@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Block from './Block';
 
 
 // Arrow right icon
@@ -34,21 +35,22 @@ const plans = [
         perMonthClass: "text-gray-500",
         buttonClass: "text-orange-400 hover:text-orange-500",
         description: "Perfect for getting started with FastPrompt",
+        badge: undefined,
     },
     {
         key: "pro",
         name: "Pro",
         price: 99,
         showPrice: true,
-        highlight: true,
-        highlightHeader: true,
-        headerClass: "bg-gradient-to-br from-orange-400 to-orange-500 rounded-t-xl",
-        cellClass: "text-white bg-gradient-to-br from-orange-400 to-orange-500 border-b border-orange-400/30",
-        priceClass: "text-white",
-        perMonthClass: "text-orange-100",
-        buttonClass: "text-white",
-        badge: "Most Popular",
+        highlight: false,
+        highlightHeader: false,
+        headerClass: "",
+        cellClass: "",
+        priceClass: "text-gray-800",
+        perMonthClass: "text-gray-500",
+        buttonClass: "text-orange-400 hover:text-orange-500",
         description: "For professionals who need more power",
+        badge: undefined,
     },
     {
         key: "builder",
@@ -63,6 +65,7 @@ const plans = [
         perMonthClass: "text-gray-500",
         buttonClass: "text-orange-400 hover:text-orange-500",
         description: "For advanced builders with premium features",
+        badge: undefined,
     },
 ];
 
@@ -82,12 +85,11 @@ const features: Array<{ label: string, keys: string[], header?: boolean, isButto
 
 const Pricing: React.FC = () => {
     return (
-        <div className="min-h-screen bg-gray-50 font-['Plus_Jakarta_Sans'] tracking-tight">
+        <div className="min-h-screen bg-gray-50 font-['Plus_Jakarta_Sans'] tracking-tight relative">
             <Navbar />
-
-            <section className="py-10 bg-white sm:py-16 lg:py-24">
+            <section className="py-10 bg-white/80 backdrop-blur-sm sm:py-16 lg:py-24 relative z-10">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="max-w-3xl mx-auto text-center">
+                    <div className="max-w-3xl mx-auto text-center relative z-20">
                         <h2 className="text-4xl font-bold text-gray-800 lg:text-5xl sm:text-5xl font-['Plus_Jakarta_Sans'] tracking-tight">
                             Simple, Transparent <span className="text-orange-400">Pricing</span>
                         </h2>
@@ -95,7 +97,38 @@ const Pricing: React.FC = () => {
                             Choose the perfect plan for your AI prompt generation needs. Start free and scale as you grow.
                         </p>
                     </div>
-
+                    <Block
+                        position="absolute"
+                        top="top-21"
+                        left="left-0"
+                        right="right-0"
+                        height="h-43.5"
+                        width="w-full"
+                        lineDirection="center"
+                        lineColor="stroke-orange-200"
+                        lineCount={17}
+                        strokeWidth={1}
+                        borderColor="border-orange-200"
+                        borderWidth="border-y"
+                        borderStyle="dashed"
+                        zIndex={1}
+                    />
+                    <Block
+                        position="absolute"
+                        top="top-66"
+                        left="left-182"
+                        right="right-0"
+                        height="h-230"
+                        width="w-55"
+                        lineDirection="center"
+                        lineColor="stroke-orange-200"
+                        lineCount={17}
+                        strokeWidth={1}
+                        borderColor="border-orange-200"
+                        borderWidth="border-y"
+                        borderStyle="dashed"
+                        zIndex={1}
+                    />
                     {/* lg+ (table) */}
                     <div className="hidden mt-16 lg:block">
                         <div className="overflow-hidden rounded-2xl shadow-xl border border-orange-100">
@@ -189,7 +222,6 @@ const Pricing: React.FC = () => {
                             </table>
                         </div>
                     </div>
-
                     {/* xs to lg */}
                     <div className="block mt-12 lg:hidden">
                         <div className="space-y-6">
