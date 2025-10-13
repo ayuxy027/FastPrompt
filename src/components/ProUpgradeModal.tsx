@@ -97,7 +97,7 @@ const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ isOpen, onClose }) =>
                             <div className="flex gap-3">
                                 <button
                                     onClick={handleUpgradeClick}
-                                    className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-200 font-['Plus_Jakarta_Sans'] tracking-tight"
+                                    className="flex-1 bg-gradient-to-r from-orange-300 to-orange-400 hover:from-orange-400 hover:to-orange-500 text-gray-800 px-4 py-3 rounded-lg font-semibold transition-all duration-200 font-['Plus_Jakarta_Sans'] tracking-tight"
                                 >
                                     Upgrade to PRO
                                 </button>
