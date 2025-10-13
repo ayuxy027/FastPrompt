@@ -37,10 +37,10 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon }) => {
                 type="button"
             >
                 <div className="flex items-center">
-                    <span className="mr-3 text-lg text-orange-600">{icon}</span>
+                    <span className="mr-3 text-lg text-orange-400">{icon}</span>
                     <span className="font-medium text-slate-800">{question}</span>
                 </div>
-                <span className="ml-2 text-lg font-bold text-orange-600">
+                <span className="ml-2 text-lg font-bold text-orange-400">
                     {isOpen ? "−" : "+"}
                 </span>
             </button>

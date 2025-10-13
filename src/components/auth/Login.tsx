@@ -35,7 +35,7 @@ const Login: React.FC = () => {
                 </div>
 
                 {/* Back Navigation */}
-                <Link to="/" className="absolute top-6 left-6 text-slate-600 hover:text-orange-500 transition-colors z-10">
+                <Link to="/" className="absolute top-6 left-6 text-slate-600 hover:text-orange-400 transition-colors z-10">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
 
                 <form className="md:w-96 w-80 flex flex-col items-center justify-center p-8 relative z-10">
                     <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
-                        Welcome to <span className="text-orange-500">FastPrompt</span>
+                        Welcome to <span className="text-orange-400">FastPrompt</span>
                     </h1>
                     <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed text-center">
                         Sign in to transform your ideas into perfect UI designs
@@ -114,25 +114,25 @@ const Login: React.FC = () => {
 
                     <div className="w-full flex items-center justify-between mt-8 text-slate-600">
                         <div className="flex items-center gap-2">
-                            <input className="h-4 w-4 text-orange-500 border-orange-200 rounded focus:ring-orange-500 focus:ring-2" type="checkbox" id="checkbox" />
+                            <input className="h-4 w-4 text-orange-400 border-orange-200 rounded focus:ring-orange-500 focus:ring-2" type="checkbox" id="checkbox" />
                             <label className="text-sm font-['Plus_Jakarta_Sans'] tracking-tight" htmlFor="checkbox">
                                 Remember me
                             </label>
                         </div>
-                        <a className="text-sm underline hover:text-orange-500 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">
+                        <a className="text-sm underline hover:text-orange-400 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">
                             Forgot password?
                         </a>
                     </div>
 
                     <button
                         type="submit"
-                        className="mt-8 w-full h-12 rounded-xl text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition-all duration-200 font-['Plus_Jakarta_Sans'] tracking-tight font-medium shadow-lg hover:shadow-xl"
+                        className="mt-8 w-full h-12 rounded-xl text-white bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 transition-all duration-200 font-['Plus_Jakarta_Sans'] tracking-tight font-medium shadow-lg hover:shadow-xl"
                     >
                         Sign In
                     </button>
                     <p className="text-slate-600 text-sm mt-6 font-['Plus_Jakarta_Sans'] tracking-tight">
                         Don't have an account?{" "}
-                        <a className="text-orange-500 hover:text-orange-600 underline transition-colors font-medium" href="#">
+                        <a className="text-orange-400 hover:text-orange-500 underline transition-colors font-medium" href="#">
                             Sign up
                         </a>
                     </p>

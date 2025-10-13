@@ -46,7 +46,7 @@ const plans = [
         cellClass: "",
         priceClass: "text-gray-800",
         perMonthClass: "text-gray-500",
-        buttonClass: "text-orange-600 hover:text-orange-700",
+        buttonClass: "text-orange-400 hover:text-orange-500",
         description: "Perfect for getting started with FastPrompt",
     },
     {
@@ -59,7 +59,7 @@ const plans = [
         cellClass: "",
         priceClass: "text-gray-800",
         perMonthClass: "text-gray-500",
-        buttonClass: "text-orange-600 hover:text-orange-700",
+        buttonClass: "text-orange-400 hover:text-orange-500",
         description: "For professionals who need more power",
     },
     {
@@ -68,8 +68,8 @@ const plans = [
         price: 99,
         highlight: true,
         highlightHeader: true,
-        headerClass: "bg-gradient-to-br from-orange-500 to-orange-600 rounded-t-xl",
-        cellClass: "text-white bg-gradient-to-br from-orange-500 to-orange-600 border-b border-orange-400/30",
+        headerClass: "bg-gradient-to-br from-orange-400 to-orange-500 rounded-t-xl",
+        cellClass: "text-white bg-gradient-to-br from-orange-400 to-orange-500 border-b border-orange-400/30",
         priceClass: "text-white",
         perMonthClass: "text-orange-100",
         buttonClass: "text-white",
@@ -86,7 +86,7 @@ const plans = [
         cellClass: "",
         priceClass: "text-gray-800",
         perMonthClass: "text-gray-500",
-        buttonClass: "text-orange-600 hover:text-orange-700",
+        buttonClass: "text-orange-400 hover:text-orange-500",
         description: "For large organizations with custom needs",
     },
 ];
@@ -99,9 +99,9 @@ const features: Array<{ label: string, keys: string[], header?: boolean, isButto
         label: "Priority Support",
         keys: [
             "-",
-            <CheckIcon key="pro" className="text-orange-500" />,
+            <CheckIcon key="pro" className="text-orange-400" />,
             <CheckIcon key="popular" className="text-white" />,
-            <CheckIcon key="enterprise" className="text-orange-500" />,
+            <CheckIcon key="enterprise" className="text-orange-400" />,
         ] as any
     },
     {
@@ -110,7 +110,7 @@ const features: Array<{ label: string, keys: string[], header?: boolean, isButto
             "-",
             "-",
             <CheckIcon key="popular" className="text-white" />,
-            <CheckIcon key="enterprise" className="text-orange-500" />,
+            <CheckIcon key="enterprise" className="text-orange-400" />,
         ] as any
     },
     {
@@ -119,7 +119,7 @@ const features: Array<{ label: string, keys: string[], header?: boolean, isButto
             "-",
             "-",
             <CheckIcon key="popular" className="text-white" />,
-            <CheckIcon key="enterprise" className="text-orange-500" />,
+            <CheckIcon key="enterprise" className="text-orange-400" />,
         ] as any
     },
     {
@@ -128,7 +128,7 @@ const features: Array<{ label: string, keys: string[], header?: boolean, isButto
             "-",
             "-",
             "-",
-            <CheckIcon key="enterprise" className="text-orange-500" />,
+            <CheckIcon key="enterprise" className="text-orange-400" />,
         ] as any
     },
     {
@@ -137,7 +137,7 @@ const features: Array<{ label: string, keys: string[], header?: boolean, isButto
             "-",
             "-",
             "-",
-            <CheckIcon key="enterprise" className="text-orange-500" />,
+            <CheckIcon key="enterprise" className="text-orange-400" />,
         ] as any
     },
 ];
@@ -152,7 +152,7 @@ const Pricing: React.FC = () => {
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-4xl font-bold text-gray-800 lg:text-5xl sm:text-5xl font-['Plus_Jakarta_Sans'] tracking-tight">
-                            Simple, Transparent <span className="text-orange-500">Pricing</span>
+                            Simple, Transparent <span className="text-orange-400">Pricing</span>
                         </h2>
                         <p className="mt-6 text-lg leading-relaxed text-gray-600 font-['Plus_Jakarta_Sans'] tracking-tight">
                             Choose the perfect plan for your JSON prompt generation needs. Start free and scale as you grow.
@@ -176,7 +176,7 @@ const Pricing: React.FC = () => {
                                                         {plan.badge}
                                                     </span>
                                                 ) : (
-                                                    <span className="text-base font-medium text-orange-600">
+                                                    <span className="text-base font-medium text-orange-400">
                                                         {plan.name}
                                                     </span>
                                                 )}
@@ -206,7 +206,7 @@ const Pricing: React.FC = () => {
                                                         [
                                                             "px-4 py-4 text-center border-b border-gray-100",
                                                             plan.highlight
-                                                                ? "text-white bg-gradient-to-br from-orange-500 to-orange-600 border-orange-400/30"
+                                                                ? "text-white bg-gradient-to-br from-orange-400 to-orange-500 border-orange-400/30"
                                                                 : "border-gray-100",
                                                             plan.cellClass || "",
                                                         ].join(" ")
@@ -228,7 +228,7 @@ const Pricing: React.FC = () => {
                                             <td
                                                 key={plan.key}
                                                 className={`px-4 py-6 text-center ${plan.highlight
-                                                    ? "text-white bg-gradient-to-br from-orange-600 to-orange-700"
+                                                    ? "text-white bg-gradient-to-br from-orange-500 to-orange-600"
                                                     : ""
                                                     }`}
                                             >
@@ -236,8 +236,8 @@ const Pricing: React.FC = () => {
                                                     href="#"
                                                     title=""
                                                     className={`inline-flex items-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 ${plan.highlight
-                                                        ? "bg-white text-orange-600 hover:bg-orange-50"
-                                                        : "bg-orange-500 text-white hover:bg-orange-600"
+                                                        ? "bg-white text-orange-400 hover:bg-orange-50"
+                                                        : "bg-orange-400 text-white hover:bg-orange-500"
                                                         }`}
                                                 >
                                                     Get Started
@@ -258,7 +258,7 @@ const Pricing: React.FC = () => {
                                 <div
                                     key={plan.key}
                                     className={`rounded-2xl shadow-lg border-2 overflow-hidden transition-all duration-200 ${plan.highlight
-                                        ? "border-orange-500 bg-gradient-to-br from-orange-500 to-orange-600 text-white"
+                                        ? "border-orange-400 bg-gradient-to-br from-orange-400 to-orange-500 text-white"
                                         : "border-orange-100 bg-white"
                                         }`}
                                 >
@@ -307,8 +307,8 @@ const Pricing: React.FC = () => {
                                             href="#"
                                             title=""
                                             className={`block w-full text-center font-semibold px-6 py-3 rounded-lg transition-all duration-200 ${plan.highlight
-                                                ? "bg-white text-orange-600 hover:bg-orange-50"
-                                                : "bg-orange-500 text-white hover:bg-orange-600"
+                                                ? "bg-white text-orange-400 hover:bg-orange-50"
+                                                : "bg-orange-400 text-white hover:bg-orange-500"
                                                 }`}
                                         >
                                             Get Started

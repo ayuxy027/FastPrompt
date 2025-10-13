@@ -37,16 +37,16 @@ const Navbar: React.FC = () => {
                 className="max-md:absolute max-md:bg-white/50 max-md:h-[785px] max-md:w-0 max-md:overflow-hidden max-md:transition-[width] max-md:duration-300 max-md:top-0 max-md:left-0 max-md:flex-col max-md:justify-center max-md:text-lg max-md:backdrop-blur flex items-center gap-8 font-medium"
                 ref={menuRef}
             >
-                <Link to="/" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <Link to="/" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Home
                 </Link>
-                <Link to="/" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <Link to="/" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Site Builder
                 </Link>
-                <Link to="/" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <Link to="/" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     JSON Editor
                 </Link>
-                <Link to="/pricing" className="hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <Link to="/pricing" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Pricing
                 </Link>
                 <button
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
                     </svg>
                 </button>
             </div>
-            <Link to="/login" className="max-md:hidden px-6 py-2.5 text-white bg-orange-500 font-medium hover:bg-orange-600 transition active:scale-95 rounded-full">
+            <Link to="/login" className="max-md:hidden px-6 py-2.5 text-white bg-orange-400 font-medium hover:bg-orange-500 transition active:scale-95 rounded-full">
                 Get Started
             </Link>
             <button

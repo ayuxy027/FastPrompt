@@ -58,7 +58,7 @@ const CreateCard: React.FC<CreateCardProps> = ({ card }) => (
         <div className="flex items-center justify-between text-slate-500 text-xs">
             <div className="flex items-center gap-1">
                 <span>Posted on</span>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition-colors">
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">
                     <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="m.027 0 4.247 5.516L0 10h.962l3.742-3.926L7.727 10H11L6.514 4.174 10.492 0H9.53L6.084 3.616 3.3 0zM1.44.688h1.504l6.64 8.624H8.082z" fill="currentColor" />
                     </svg>
@@ -151,7 +151,7 @@ const Reviews: React.FC = () => {
 
                 <div className="flex flex-col items-center justify-center w-full relative z-10 mb-16">
                     <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
-                        Loved by Developers <span className="text-orange-500">Worldwide</span>
+                        Loved by Developers <span className="text-orange-400">Worldwide</span>
                     </h2>
                     <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed max-w-3xl">
                         See what developers and designers are saying about FastPrompt's ability to transform their ideas into perfect UI designs. Join thousands of satisfied users.

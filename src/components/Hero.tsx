@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
                             </svg>
                         </button>
                         <button
-                            className="flex items-center justify-center p-1 rounded size-6 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="flex items-center justify-center p-1 rounded size-6 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
                             aria-label="Send"
                             type="submit"
                             disabled={!query.trim()}
@@ -142,13 +142,13 @@ const Hero: React.FC = () => {
                 </form>
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-10 text-slate-500">
                     <p
-                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        className="cursor-pointer hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
                         onClick={() => handleSampleClick("Create a modern SaaS dashboard for analytics")}
                     >
                         Create a modern SaaS dashboard for analytics
                     </p>
                     <p
-                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        className="cursor-pointer hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
                         onClick={() => handleSampleClick("Design an e-commerce product catalog")}
                     >
                         Design an e-commerce product catalog
@@ -156,13 +156,13 @@ const Hero: React.FC = () => {
                     <div className="w-full h-px bg-orange-200"></div>
                     <div className="w-full h-px bg-orange-200"></div>
                     <p
-                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        className="cursor-pointer hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
                         onClick={() => handleSampleClick("Build a mobile app onboarding flow")}
                     >
                         Build a mobile app onboarding flow
                     </p>
                     <p
-                        className="cursor-pointer hover:text-orange-600 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
+                        className="cursor-pointer hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight text-xs sm:text-sm md:text-base"
                         onClick={() => handleSampleClick("Create an admin panel for user management")}
                     >
                         Create an admin panel for user management

@@ -55,7 +55,7 @@ const Brands: React.FC = () => {
 
             <div className="flex flex-col items-center justify-center w-full relative z-10 mb-8">
                 <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight font-semibold leading-tight text-center">
-                    Trusted by <span className="text-orange-500">Leading Companies</span>
+                    Trusted by <span className="text-orange-400">Leading Companies</span>
                 </h2>
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl mt-6 sm:mt-8 text-slate-600 font-['Plus_Jakarta_Sans'] tracking-tight leading-relaxed max-w-3xl">
                     Join thousands of developers and teams who rely on FastPrompt to power their design workflows with the world's most innovative companies.

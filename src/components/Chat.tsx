@@ -54,7 +54,7 @@ const Chat: React.FC = () => {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-400 mx-auto mb-4"></div>
                     <p className="text-gray-600">Loading...</p>
                 </div>
             </div>
@@ -109,7 +109,7 @@ const Chat: React.FC = () => {
                     {isProcessing ? (
                         <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-3">
-                                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-orange-500"></div>
+                                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-orange-400"></div>
                                 <div>
                                     <p className="text-gray-700 font-medium">Generating JSON specification...</p>
                                     <p className="text-sm text-gray-500">
@@ -123,7 +123,7 @@ const Chat: React.FC = () => {
                                 disabled={!result}
                                 title="Copy JSON"
                             >
-                                <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                 </svg>
                             </button>
@@ -161,7 +161,7 @@ const Chat: React.FC = () => {
                                 // TODO: Navigate to JSON editor with the result
                                 console.log('Navigate to JSON Editor with:', result);
                             }}
-                            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
+                            className="flex-1 bg-orange-400 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -199,7 +199,7 @@ const Chat: React.FC = () => {
                         </div>
 
                         <div className="flex items-center space-x-3">
-                            <div className={`w-6 h-6 rounded-full flex items-center justify-center ${isProcessing ? 'bg-orange-500' : result ? 'bg-green-500' : 'bg-gray-300'
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center ${isProcessing ? 'bg-orange-400' : result ? 'bg-green-500' : 'bg-gray-300'
                                 }`}>
                                 {isProcessing ? (
                                     <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
