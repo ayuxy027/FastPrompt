@@ -129,6 +129,15 @@ const Pricing: React.FC = () => {
                         borderStyle="dashed"
                         zIndex={1}
                     />
+                    <Block
+                        position="absolute"
+                        top="top-297"
+                        left="left-0"
+                        right="right-0"
+                        height="h-40"
+                        width="w-full"
+                        lineDirection="center"
+                    />
                     {/* lg+ (table) */}
                     <div className="hidden mt-16 lg:block">
                         <div className="overflow-hidden rounded-2xl shadow-xl border border-orange-100">
@@ -294,26 +303,39 @@ const Pricing: React.FC = () => {
 
                     {/* FAQ Section */}
                     <div className="mt-20">
-                        <div className="max-w-3xl mx-auto text-center mb-12">
-                            <h3 className="text-2xl font-bold text-gray-800 font-['Plus_Jakarta_Sans'] tracking-tight">
-                                Frequently Asked Questions
+                        <div className="max-w-3xl mx-auto text-center mb-12 relative z-20">
+                            <h3 className="text-4xl font-bold text-gray-800 lg:text-5xl sm:text-5xl font-['Plus_Jakarta_Sans'] tracking-tight">
+                                Frequently Asked <span className="text-orange-400">Questions</span>
                             </h3>
+                            <p className="mt-6 text-lg leading-relaxed text-gray-600 font-['Plus_Jakarta_Sans'] tracking-tight">
+                                Everything you need to know about our AI prompt generation plans and features.
+                            </p>
                         </div>
 
                         <div className="max-w-4xl mx-auto space-y-4">
-                            <div className="bg-white rounded-xl border border-orange-100 p-6">
-                                <h4 className="font-semibold text-gray-800 mb-2">Can I change plans anytime?</h4>
-                                <p className="text-gray-600 text-sm">Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
+                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
+                                <h4 className="font-semibold text-gray-800 mb-2">What are AI Edits?</h4>
+                                <p className="text-gray-600 text-sm">AI Edits are follow-up queries that allow you to refine and improve your initial prompts. Each plan includes a specific number of AI Edits per month to help you iterate on your designs.</p>
                             </div>
 
-                            <div className="bg-white rounded-xl border border-orange-100 p-6">
-                                <h4 className="font-semibold text-gray-800 mb-2">What happens if I exceed my limits?</h4>
-                                <p className="text-gray-600 text-sm">We'll notify you when you're approaching your limits. You can upgrade anytime or wait for the next billing cycle.</p>
+                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
+                                <h4 className="font-semibold text-gray-800 mb-2">Can I upgrade my plan anytime?</h4>
+                                <p className="text-gray-600 text-sm">Yes, you can upgrade your plan at any time. Upgrades take effect immediately and give you access to higher limits and additional features like more models and file attachments.</p>
                             </div>
 
-                            <div className="bg-white rounded-xl border border-orange-100 p-6">
-                                <h4 className="font-semibold text-gray-800 mb-2">Do you offer refunds?</h4>
-                                <p className="text-gray-600 text-sm">Yes, we offer a 30-day money-back guarantee on all paid plans. No questions asked.</p>
+                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
+                                <h4 className="font-semibold text-gray-800 mb-2">What is the Site Builder feature?</h4>
+                                <p className="text-gray-600 text-sm">The Site Builder is a premium feature available only to Builder plan users. It generates complete websites using Claude 4.5 Sonnet and GPT 5 models running in parallel for faster, higher-quality results.</p>
+                            </div>
+
+                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
+                                <h4 className="font-semibold text-gray-800 mb-2">What file types can I attach?</h4>
+                                <p className="text-gray-600 text-sm">Pro and Builder users can attach images, PDFs, and even link Figma designs. Free users cannot attach files. File attachments help provide better context for your prompt generation.</p>
+                            </div>
+
+                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
+                                <h4 className="font-semibold text-gray-800 mb-2">What happens if I exceed my query limits?</h4>
+                                <p className="text-gray-600 text-sm">We'll notify you when you're approaching your monthly limits. You can upgrade your plan anytime to get more queries and features, or wait for the next billing cycle to reset your usage.</p>
                             </div>
                         </div>
                     </div>
