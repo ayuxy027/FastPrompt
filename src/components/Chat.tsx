@@ -22,12 +22,14 @@ const Chat: React.FC = () => {
     const [result, setResult] = useState<string | null>(null);
     const [error, setError] = useState<ProcessingError | null>(null);
     const [streamingContent, setStreamingContent] = useState<string>('');
+    const [isFallbackResponse, setIsFallbackResponse] = useState(false);
 
     const processQuery = useCallback(async (query: string) => {
         setIsProcessing(true);
         setError(null);
         setStreamingContent('');
         setResult(null);
+        setIsFallbackResponse(false);
 
         try {
             // Use streaming for better user experience
@@ -48,6 +50,7 @@ const Chat: React.FC = () => {
             if (validation.isValid) {
                 setResult(finalResult);
                 setStreamingContent('');
+                setIsFallbackResponse(validation.isFallback || false);
             } else {
                 throw new Error(validation.error || 'Generated JSON is invalid');
             }
@@ -189,31 +192,63 @@ const Chat: React.FC = () => {
                         </div>
                     ) : result ? (
                         <div className="space-y-3">
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-2 text-green-600">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                    </svg>
-                                    <span className="font-medium">Processing Complete!</span>
-                                </div>
-                                <button
-                                    onClick={() => result && navigator.clipboard.writeText(result)}
-                                    className="flex items-center justify-center p-2 rounded-lg bg-green-100 hover:bg-green-200 transition-colors"
-                                    title="Copy JSON"
-                                >
-                                    <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                    </svg>
-                                </button>
-                            </div>
+                            {isFallbackResponse ? (
+                                // Fallback Response Display
+                                <div className="space-y-3">
+                                    <div className="flex items-center space-x-2 text-orange-600">
+                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                                        </svg>
+                                        <span className="font-medium">Query Validation Failed</span>
+                                    </div>
 
-                            {/* Result Display */}
-                            <div className="bg-gray-50 rounded-lg p-4 border">
-                                <h3 className="text-sm font-medium text-gray-700 mb-2">Generated JSON Specification:</h3>
-                                <pre className="text-xs text-gray-600 overflow-x-auto whitespace-pre-wrap max-h-96 overflow-y-auto">
-                                    {result}
-                                </pre>
-                            </div>
+                                    <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                                        <h3 className="text-sm font-medium text-orange-800 mb-2">Unable to Process Query</h3>
+                                        <p className="text-sm text-orange-700">
+                                            I am unable to process this matter since it appears either senseless or is unprocessable completely, please try again with more valid query
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <h4 className="text-sm font-medium text-blue-800 mb-2">💡 Tips for better results:</h4>
+                                        <ul className="text-sm text-blue-700 space-y-1">
+                                            <li>• Be specific about what UI/UX you want to create</li>
+                                            <li>• Include details about the app or website purpose</li>
+                                            <li>• Mention key components like buttons, forms, or layouts</li>
+                                            <li>• Describe the target audience or design style</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            ) : (
+                                // Normal Result Display
+                                <div className="space-y-3">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center space-x-2 text-green-600">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                            </svg>
+                                            <span className="font-medium">Processing Complete!</span>
+                                        </div>
+                                        <button
+                                            onClick={() => result && navigator.clipboard.writeText(result)}
+                                            className="flex items-center justify-center p-2 rounded-lg bg-green-100 hover:bg-green-200 transition-colors"
+                                            title="Copy JSON"
+                                        >
+                                            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    {/* Result Display */}
+                                    <div className="bg-gray-50 rounded-lg p-4 border">
+                                        <h3 className="text-sm font-medium text-gray-700 mb-2">Generated JSON Specification:</h3>
+                                        <pre className="text-xs text-gray-600 overflow-x-auto whitespace-pre-wrap max-h-96 overflow-y-auto">
+                                            {result}
+                                        </pre>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     ) : null}
                 </motion.div>
@@ -225,7 +260,7 @@ const Chat: React.FC = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-col sm:flex-row gap-3"
                 >
-                    {result && (
+                    {result && !isFallbackResponse && (
                         <button
                             onClick={() => {
                                 if (result) {
@@ -242,12 +277,15 @@ const Chat: React.FC = () => {
                     )}
                     <button
                         onClick={handleNewQuery}
-                        className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
+                        className={`flex-1 px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 ${isFallbackResponse
+                                ? 'bg-orange-400 hover:bg-orange-500 text-white'
+                                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                            }`}
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
-                        <span>Start New Query</span>
+                        <span>{isFallbackResponse ? 'Try Different Query' : 'Start New Query'}</span>
                     </button>
                 </motion.div>
 
@@ -270,7 +308,11 @@ const Chat: React.FC = () => {
                         </div>
 
                         <div className="flex items-center space-x-3">
-                            <div className={`w-6 h-6 rounded-full flex items-center justify-center ${error ? 'bg-red-500' : isProcessing ? 'bg-orange-400' : result ? 'bg-green-500' : 'bg-gray-300'
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center ${error ? 'bg-red-500' :
+                                    isProcessing ? 'bg-orange-400' :
+                                        result && !isFallbackResponse ? 'bg-green-500' :
+                                            isFallbackResponse ? 'bg-orange-500' :
+                                                'bg-gray-300'
                                 }`}>
                                 {error ? (
                                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -278,23 +320,34 @@ const Chat: React.FC = () => {
                                     </svg>
                                 ) : isProcessing ? (
                                     <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                                ) : result ? (
+                                ) : result && !isFallbackResponse ? (
                                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                    </svg>
+                                ) : isFallbackResponse ? (
+                                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                                     </svg>
                                 ) : (
                                     <span className="text-xs text-white font-bold">2</span>
                                 )}
                             </div>
-                            <span className={`${error ? 'text-red-600' : 'text-gray-700'}`}>
-                                {error ? 'Failed to generate JSON specification' : 'Generating JSON specification'}
+                            <span className={`${error ? 'text-red-600' :
+                                    isFallbackResponse ? 'text-orange-600' :
+                                        'text-gray-700'
+                                }`}>
+                                {error ? 'Failed to generate JSON specification' :
+                                    isFallbackResponse ? 'Query validation failed - invalid input' :
+                                        'Generating JSON specification'}
                             </span>
                         </div>
 
                         <div className="flex items-center space-x-3">
-                            <div className={`w-6 h-6 rounded-full flex items-center justify-center ${error ? 'bg-gray-300' : result ? 'bg-green-500' : 'bg-gray-300'
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center ${error || isFallbackResponse ? 'bg-gray-300' :
+                                    result && !isFallbackResponse ? 'bg-green-500' :
+                                        'bg-gray-300'
                                 }`}>
-                                {result ? (
+                                {result && !isFallbackResponse ? (
                                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                     </svg>
@@ -302,8 +355,10 @@ const Chat: React.FC = () => {
                                     <span className="text-xs text-white font-bold">3</span>
                                 )}
                             </div>
-                            <span className={`${error ? 'text-gray-400' : 'text-gray-700'}`}>
-                                {error ? 'Export blocked due to generation failure' : 'Ready for export to design tools'}
+                            <span className={`${error || isFallbackResponse ? 'text-gray-400' : 'text-gray-700'}`}>
+                                {error ? 'Export blocked due to generation failure' :
+                                    isFallbackResponse ? 'Export blocked due to invalid query' :
+                                        'Ready for export to design tools'}
                             </span>
                         </div>
                     </div>

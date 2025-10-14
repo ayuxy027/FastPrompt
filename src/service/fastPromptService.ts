@@ -27,6 +27,64 @@ const GROQ_MODEL = "llama-3.1-8b-instant";
  */
 export class FastPromptService {
   /**
+   * Validate if query is meaningful and processable
+   */
+  private static isValidQuery(query: string): boolean {
+    if (!query || query.trim().length < 3) {
+      return false;
+    }
+
+    // Remove extra whitespace and normalize
+    const normalizedQuery = query.trim().toLowerCase();
+    
+    // Check for obvious gibberish patterns
+    const gibberishPatterns = [
+      /^[^a-zA-Z0-9\s]*$/, // Only special characters
+      /(.)\1{10,}/, // Repeated characters (more than 10 times)
+      /^[a-z]\s[a-z]\s[a-z]/, // Single characters separated by spaces
+      /^[\d\s]+$/, // Only numbers and spaces
+      /^[^\w\s]+$/, // Only special characters and spaces
+    ];
+
+    for (const pattern of gibberishPatterns) {
+      if (pattern.test(normalizedQuery)) {
+        return false;
+      }
+    }
+
+    // Check for minimum meaningful content
+    const words = normalizedQuery.split(/\s+/).filter(word => word.length > 1);
+    if (words.length < 2) {
+      return false;
+    }
+
+    // Check for common UI/design related keywords (basic validation)
+    const uiKeywords = [
+      'app', 'website', 'page', 'screen', 'component', 'button', 'form', 'layout',
+      'design', 'ui', 'ux', 'interface', 'dashboard', 'login', 'signup', 'profile',
+      'home', 'menu', 'navigation', 'header', 'footer', 'sidebar', 'modal', 'card',
+      'table', 'list', 'grid', 'input', 'text', 'image', 'icon', 'color', 'theme'
+    ];
+
+    const hasUIKeywords = uiKeywords.some(keyword => normalizedQuery.includes(keyword));
+    
+    // If query is very short and doesn't contain UI keywords, consider it invalid
+    if (normalizedQuery.length < 10 && !hasUIKeywords) {
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Generate fallback response for invalid queries
+   */
+  private static generateFallbackResponse(): string {
+    return JSON.stringify({
+      fallbackResponse: "I am unable to process this matter since it appears either senseless or is unprocessable completely, please try again with more valid query"
+    });
+  }
+  /**
    * Prepare messages for GROQ API
    */
   private static prepareMessages(userPrompt: string): GroqMessage[] {
@@ -46,6 +104,11 @@ export class FastPromptService {
    * Generate JSON specification using GROQ API
    */
   static async generateJsonSpecification(userPrompt: string): Promise<string> {
+    // Validate query first
+    if (!this.isValidQuery(userPrompt)) {
+      return this.generateFallbackResponse();
+    }
+
     if (!import.meta.env.VITE_GROQ_API_KEY) {
       throw new Error("Missing GROQ API key. Please add VITE_GROQ_API_KEY to your environment variables.");
     }
@@ -84,6 +147,13 @@ export class FastPromptService {
     userPrompt: string, 
     onChunk: (chunk: string, done: boolean) => void
   ): Promise<string> {
+    // Validate query first
+    if (!this.isValidQuery(userPrompt)) {
+      const fallbackResponse = this.generateFallbackResponse();
+      onChunk("", true); // Signal completion
+      return fallbackResponse;
+    }
+
     if (!import.meta.env.VITE_GROQ_API_KEY) {
       throw new Error("Missing GROQ API key. Please add VITE_GROQ_API_KEY to your environment variables.");
     }
@@ -148,9 +218,17 @@ export class FastPromptService {
   /**
    * Validate JSON specification
    */
-  static validateJsonSpecification(jsonString: string): { isValid: boolean; error?: string } {
+  static validateJsonSpecification(jsonString: string): { isValid: boolean; error?: string; isFallback?: boolean } {
     try {
       const parsed = JSON.parse(jsonString);
+      
+      // Check if this is a fallback response
+      if (parsed.fallbackResponse) {
+        return {
+          isValid: true,
+          isFallback: true
+        };
+      }
       
       // Check for required top-level keys
       const requiredKeys = ['audit', 'layout', 'uiDetails', 'interactions', 'functionality', 'toneAudience', 'finalPrompt'];
