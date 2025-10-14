@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Block from './Block';
+import { motion, AnimatePresence } from 'framer-motion';
 
 
 // Arrow right icon
@@ -84,6 +85,35 @@ const features: Array<{ label: string, keys: string[], header?: boolean, isButto
 
 
 const Pricing: React.FC = () => {
+    const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+
+    const toggleAccordion = (index: number) => {
+        setOpenAccordion(openAccordion === index ? null : index);
+    };
+
+    const faqItems = [
+        {
+            question: "What are AI Edits?",
+            answer: "AI Edits are follow-up queries that allow you to refine and improve your initial prompts. Each plan includes a specific number of AI Edits per month to help you iterate on your designs."
+        },
+        {
+            question: "Can I upgrade my plan anytime?",
+            answer: "Yes, you can upgrade your plan at any time. Upgrades take effect immediately and give you access to higher limits and additional features like more models and file attachments."
+        },
+        {
+            question: "What is the Site Builder feature?",
+            answer: "The Site Builder is a premium feature available only to Builder plan users. It generates complete websites using Claude 4.5 Sonnet and GPT 5 models running in parallel for faster, higher-quality results."
+        },
+        {
+            question: "What file types can I attach?",
+            answer: "Pro and Builder users can attach images, PDFs, and even link Figma designs. Free users cannot attach files. File attachments help provide better context for your prompt generation."
+        },
+        {
+            question: "What happens if I exceed my query limits?",
+            answer: "We'll notify you when you're approaching your monthly limits. You can upgrade your plan anytime to get more queries and features, or wait for the next billing cycle to reset your usage."
+        }
+    ];
+
     return (
         <div className="min-h-screen bg-gray-50 font-['Plus_Jakarta_Sans'] tracking-tight relative">
             <Navbar />
@@ -97,48 +127,96 @@ const Pricing: React.FC = () => {
                             Choose the perfect plan for your AI prompt generation needs. Start free and scale as you grow.
                         </p>
                     </div>
-                    <Block
-                        position="absolute"
-                        top="top-21"
-                        left="left-0"
-                        right="right-0"
-                        height="h-43.5"
-                        width="w-full"
-                        lineDirection="center"
-                        lineColor="stroke-orange-200"
-                        lineCount={17}
-                        strokeWidth={1}
-                        borderColor="border-orange-200"
-                        borderWidth="border-y"
-                        borderStyle="dashed"
-                        zIndex={1}
-                    />
-                    {/* this block is on the pro column and needs fixing in the left/right  */}
-                    <Block
-                        position="absolute"
-                        top="top-66"
-                        left="left-182"
-                        right="right-0"
-                        height="h-230"
-                        width="w-55"
-                        lineDirection="center"
-                        lineColor="stroke-orange-200"
-                        lineCount={17}
-                        strokeWidth={1}
-                        borderColor="border-orange-200"
-                        borderWidth="border-y"
-                        borderStyle="dashed"
-                        zIndex={1}
-                    />
-                    <Block
-                        position="absolute"
-                        top="top-297"
-                        left="left-0"
-                        right="right-0"
-                        height="h-40"
-                        width="w-full"
-                        lineDirection="center"
-                    />
+                    {/* Header decoration block - responsive */}
+                    {/* Block Component Props Documentation:
+                        position: "absolute" | "relative" | "fixed" | "static" | "sticky"
+                        top: Tailwind spacing class (e.g., "top-21", "top-0", "top-1/2")
+                        left: Tailwind spacing class (e.g., "left-0", "left-1/3", "left-auto")
+                        right: Tailwind spacing class (e.g., "right-0", "right-1/3", "right-auto")
+                        height: Tailwind height class (e.g., "h-43.5", "h-full", "h-screen")
+                        width: Tailwind width class (e.g., "w-full", "w-1/3", "w-auto")
+                        lineDirection: "center" | "left" | "right" | "top" | "bottom"
+                        lineColor: Tailwind color class (e.g., "stroke-orange-200", "stroke-gray-300")
+                        lineCount: Number of decorative lines (1-50)
+                        strokeWidth: Line thickness (1-10)
+                        borderColor: Tailwind border color (e.g., "border-orange-200", "border-gray-300")
+                        borderWidth: Tailwind border width (e.g., "border-y", "border-x", "border")
+                        borderStyle: "solid" | "dashed" | "dotted" | "double" | "none"
+                        zIndex: CSS z-index value (1-9999)
+                    */}
+                    <div className="hidden sm:block">
+                        <Block
+                            position="absolute"
+                            top="top-21"
+                            left="left-0"
+                            right="right-0"
+                            height="h-43.5"
+                            width="w-full"
+                            lineDirection="center"
+                            lineColor="stroke-orange-200"
+                            lineCount={17}
+                            strokeWidth={1}
+                            borderColor="border-orange-200"
+                            borderWidth="border-y"
+                            borderStyle="dashed"
+                            zIndex={1}
+                        />
+                    </div>
+                    {/* Pro column highlight block - responsive and properly anchored */}
+                    {/* Positioned to highlight the Pro column (middle of 3 columns) */}
+                    {/* left: 1/3 = 33.33% (start of middle column), right: 1/3 = 33.33% (end of middle column) */}
+                    <div className="hidden lg:block">
+                        <Block
+                            position="absolute"
+                            top="top-66"
+                            left="left-1/2"
+                            right="right-1/6"
+                            height="h-230"
+                            width="w-66"
+                            lineDirection="center"
+                            lineColor="stroke-orange-200"
+                            lineCount={17}
+                            strokeWidth={1}
+                            borderColor="border-orange-200"
+                            borderWidth="border-y"
+                            borderStyle="dashed"
+                            zIndex={1}
+                        />
+                    </div>
+                    {/* Footer decoration block - responsive */}
+                    {/* Block Component Usage Example:
+                        - position="absolute": Positions block relative to nearest positioned ancestor
+                        - top="top-297": 297 units from top (Tailwind spacing scale)
+                        - left/right="left-0/right-0": Full width positioning
+                        - height="h-40": 40 units height (10rem)
+                        - width="w-full": Full width (100%)
+                        - lineDirection="center": Lines centered within block
+                        - lineColor="stroke-orange-200": Orange stroke color for SVG lines
+                        - lineCount={17}: Number of decorative lines to render
+                        - strokeWidth={1}: 1px line thickness
+                        - borderColor="border-orange-200": Orange border color
+                        - borderWidth="border-y": Top and bottom borders only
+                        - borderStyle="dashed": Dashed border style
+                        - zIndex={1}: Layer stacking order
+                    */}
+                    <div className="hidden sm:block">
+                        <Block
+                            position="absolute"
+                            top="top-297"
+                            left="left-0"
+                            right="right-0"
+                            height="h-40"
+                            width="w-full"
+                            lineDirection="center"
+                            lineColor="stroke-orange-200"
+                            lineCount={17}
+                            strokeWidth={1}
+                            borderColor="border-orange-200"
+                            borderWidth="border-y"
+                            borderStyle="dashed"
+                            zIndex={1}
+                        />
+                    </div>
                     {/* lg+ (table) */}
                     <div className="hidden mt-16 lg:block">
                         <div className="overflow-hidden rounded-2xl shadow-xl border border-orange-100">
@@ -313,31 +391,66 @@ const Pricing: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="max-w-4xl mx-auto space-y-4">
-                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
-                                <h4 className="font-semibold text-gray-800 mb-2">What are AI Edits?</h4>
-                                <p className="text-gray-600 text-sm">AI Edits are follow-up queries that allow you to refine and improve your initial prompts. Each plan includes a specific number of AI Edits per month to help you iterate on your designs.</p>
-                            </div>
+                        <div className="max-w-4xl mx-auto space-y-3">
+                            {faqItems.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="bg-white rounded-lg border border-orange-100 relative z-20 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+                                >
+                                    <button
+                                        onClick={() => toggleAccordion(index)}
+                                        className="w-full p-5 text-left flex items-center justify-between hover:bg-orange-50 transition-all duration-300 ease-out focus:outline-none"
+                                    >
+                                        <h4 className="font-medium text-gray-800 pr-3 text-base">{item.question}</h4>
+                                        <motion.div
+                                            animate={{ rotate: openAccordion === index ? 180 : 0 }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            className="flex-shrink-0"
+                                        >
+                                            <svg
+                                                className="w-4 h-4 text-orange-400"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M19 9l-7 7-7-7"
+                                                />
+                                            </svg>
+                                        </motion.div>
+                                    </button>
 
-                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
-                                <h4 className="font-semibold text-gray-800 mb-2">Can I upgrade my plan anytime?</h4>
-                                <p className="text-gray-600 text-sm">Yes, you can upgrade your plan at any time. Upgrades take effect immediately and give you access to higher limits and additional features like more models and file attachments.</p>
-                            </div>
-
-                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
-                                <h4 className="font-semibold text-gray-800 mb-2">What is the Site Builder feature?</h4>
-                                <p className="text-gray-600 text-sm">The Site Builder is a premium feature available only to Builder plan users. It generates complete websites using Claude 4.5 Sonnet and GPT 5 models running in parallel for faster, higher-quality results.</p>
-                            </div>
-
-                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
-                                <h4 className="font-semibold text-gray-800 mb-2">What file types can I attach?</h4>
-                                <p className="text-gray-600 text-sm">Pro and Builder users can attach images, PDFs, and even link Figma designs. Free users cannot attach files. File attachments help provide better context for your prompt generation.</p>
-                            </div>
-
-                            <div className="bg-white rounded-xl border border-orange-100 p-6 relative z-20">
-                                <h4 className="font-semibold text-gray-800 mb-2">What happens if I exceed my query limits?</h4>
-                                <p className="text-gray-600 text-sm">We'll notify you when you're approaching your monthly limits. You can upgrade your plan anytime to get more queries and features, or wait for the next billing cycle to reset your usage.</p>
-                            </div>
+                                    <AnimatePresence>
+                                        {openAccordion === index && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                                                className="overflow-hidden"
+                                            >
+                                                <div className="px-5 pb-5 pt-0">
+                                                    <motion.p
+                                                        initial={{ opacity: 0, y: -5 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        exit={{ opacity: 0, y: -5 }}
+                                                        transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                                                        className="text-gray-600 text-sm leading-relaxed"
+                                                    >
+                                                        {item.answer}
+                                                    </motion.p>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
                 </div>
