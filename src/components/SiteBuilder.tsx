@@ -1,27 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
-import Block from './Block';
 import { motion } from 'framer-motion';
 
 const SiteBuilder: React.FC = () => {
-  const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
+  // const [selectedComponent, setSelectedComponent] = useState<string | null>(null);
   const navigate = useNavigate();
 
   // Mock components for the palette
-  const componentPalette = [
-    { id: 'header', name: 'Header', icon: 'H' },
-    { id: 'hero', name: 'Hero Section', icon: ' hero ' },
-    { id: 'card', name: 'Card', icon: ' [] ' },
-    { id: 'button', name: 'Button', icon: ' [ ] ' },
-    { id: 'form', name: 'Form', icon: ' f ' },
-    { id: 'footer', name: 'Footer', icon: ' F ' },
-  ];
+  // const componentPalette = [
+  //   { id: 'header', name: 'Header', icon: 'H' },
+  //   { id: 'hero', name: 'Hero Section', icon: ' hero ' },
+  //   { id: 'card', name: 'Card', icon: ' [] ' },
+  //   { id: 'button', name: 'Button', icon: ' [ ] ' },
+  //   { id: 'form', name: 'Form', icon: ' f ' },
+  //   { id: 'footer', name: 'Footer', icon: ' F ' },
+  // ];
 
-  const handleComponentClick = (component: { id: string }) => {
-    setSelectedComponent(component.id);
-    // In a real implementation, this would add the component to the canvas
-  };
+  // const handleComponentClick = (component: { id: string }) => {
+  //   setSelectedComponent(component.id);
+  //   // In a real implementation, this would add the component to the canvas
+  // };
 
   return (
     <div className="min-h-screen bg-gray-50 font-['Plus_Jakarta_Sans'] tracking-tight">

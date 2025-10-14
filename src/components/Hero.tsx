@@ -104,11 +104,13 @@ const Hero: React.FC = () => {
                     <textarea
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        onKeyDown={(e) => {
+                        onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
                             if (e.key === 'Enter' && !e.shiftKey) {
                                 e.preventDefault();
                                 if (query.trim()) {
-                                    handleSubmit(e as any);
+                                    // Trigger the form submit programmatically with a synthetic SubmitEvent
+                                    // so we keep types safe and avoid casting to any.
+                                    e.currentTarget.form?.requestSubmit();
                                 }
                             }
                         }}

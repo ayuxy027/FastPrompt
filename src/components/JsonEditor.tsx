@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 interface JsonEditorProps {
   initialJson?: string;
   onSave?: (json: string) => void;
-  onFormat?: (json: string) => void;
   autoSave?: boolean;
   storageKey?: string;
 }
@@ -13,7 +12,6 @@ interface JsonEditorProps {
 const JsonEditor: React.FC<JsonEditorProps> = ({
   initialJson = '{}',
   onSave,
-  onFormat,
   autoSave = true,
   storageKey = 'fastprompt_json_editor'
 }) => {
@@ -79,17 +77,15 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
         clearTimeout(saveTimeoutRef.current);
       }
     };
-  }, [jsonValue, autoSave, hasUnsavedChanges, storageKey]);
+  }, [jsonValue, autoSave, hasUnsavedChanges, storageKey, saveToStorage]);
 
   // Update jsonValue when initialJson prop changes
   useEffect(() => {
-    if (initialJson !== jsonValue) {
-      setJsonValue(initialJson);
-      setIsFormatted(false);
-      setIsMinified(false);
-      setError(null);
-      setHasUnsavedChanges(true);
-    }
+    setJsonValue(initialJson);
+    setIsFormatted(false);
+    setIsMinified(false);
+    setError(null);
+    setHasUnsavedChanges(true);
   }, [initialJson]);
 
   const handleEditorDidMount = (editor: unknown) => {
@@ -170,7 +166,7 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
       setError(null);
       setIsValid(true);
       setHasUnsavedChanges(true);
-    } catch (error) {
+    } catch {
       setError('Cannot format invalid JSON');
       setIsValid(false);
     }
@@ -191,7 +187,7 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
       setError(null);
       setIsValid(true);
       setHasUnsavedChanges(true);
-    } catch (error) {
+    } catch {
       setError('Cannot minify invalid JSON');
       setIsValid(false);
     }
@@ -212,7 +208,7 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
       setError(null);
       setIsValid(true);
       setHasUnsavedChanges(true);
-    } catch (error) {
+    } catch {
       setError('Cannot compress invalid JSON');
       setIsValid(false);
     }
@@ -248,8 +244,8 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
     try {
       await navigator.clipboard.writeText(jsonValue);
       // You could add a toast notification here
-    } catch (error) {
-      console.error('Failed to copy to clipboard:', error);
+    } catch {
+      console.error('Failed to copy to clipboard');
       // Fallback for older browsers
       const textArea = document.createElement('textarea');
       textArea.value = jsonValue;
@@ -273,8 +269,8 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Failed to download file:', error);
+    } catch {
+      console.error('Failed to download file');
     }
   }, [jsonValue]);
 
@@ -307,7 +303,7 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
         setError(null);
         setIsValid(true);
         setHasUnsavedChanges(true);
-      } catch (error) {
+      } catch {
         setError('Invalid JSON file');
         setIsValid(false);
       } finally {
@@ -368,8 +364,8 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
               onClick={handleFormatJson}
               disabled={isLoading}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center space-x-1 ${isFormatted
-                  ? 'bg-orange-400 text-white'
-                  : 'bg-white text-gray-700 hover:bg-orange-100 border border-orange-200 disabled:opacity-50'
+                ? 'bg-orange-400 text-white'
+                : 'bg-white text-gray-700 hover:bg-orange-100 border border-orange-200 disabled:opacity-50'
                 }`}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -381,8 +377,8 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
               onClick={handleMinifyJson}
               disabled={isLoading}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center space-x-1 ${isMinified
-                  ? 'bg-orange-400 text-white'
-                  : 'bg-white text-gray-700 hover:bg-orange-100 border border-orange-200 disabled:opacity-50'
+                ? 'bg-orange-400 text-white'
+                : 'bg-white text-gray-700 hover:bg-orange-100 border border-orange-200 disabled:opacity-50'
                 }`}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
