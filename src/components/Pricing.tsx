@@ -113,6 +113,7 @@ const Pricing: React.FC = () => {
                         borderStyle="dashed"
                         zIndex={1}
                     />
+                    {/* this block is on the pro column and needs fixing in the left/right  */}
                     <Block
                         position="absolute"
                         top="top-66"
