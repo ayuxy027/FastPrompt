@@ -128,22 +128,6 @@ const Pricing: React.FC = () => {
                         </p>
                     </div>
                     {/* Header decoration block - responsive */}
-                    {/* Block Component Props Documentation:
-                        position: "absolute" | "relative" | "fixed" | "static" | "sticky"
-                        top: Tailwind spacing class (e.g., "top-21", "top-0", "top-1/2")
-                        left: Tailwind spacing class (e.g., "left-0", "left-1/3", "left-auto")
-                        right: Tailwind spacing class (e.g., "right-0", "right-1/3", "right-auto")
-                        height: Tailwind height class (e.g., "h-43.5", "h-full", "h-screen")
-                        width: Tailwind width class (e.g., "w-full", "w-1/3", "w-auto")
-                        lineDirection: "center" | "left" | "right" | "top" | "bottom"
-                        lineColor: Tailwind color class (e.g., "stroke-orange-200", "stroke-gray-300")
-                        lineCount: Number of decorative lines (1-50)
-                        strokeWidth: Line thickness (1-10)
-                        borderColor: Tailwind border color (e.g., "border-orange-200", "border-gray-300")
-                        borderWidth: Tailwind border width (e.g., "border-y", "border-x", "border")
-                        borderStyle: "solid" | "dashed" | "dotted" | "double" | "none"
-                        zIndex: CSS z-index value (1-9999)
-                    */}
                     <div className="hidden sm:block">
                         <Block
                             position="absolute"
@@ -163,8 +147,6 @@ const Pricing: React.FC = () => {
                         />
                     </div>
                     {/* Pro column highlight block - responsive and properly anchored */}
-                    {/* Positioned to highlight the Pro column (middle of 3 columns) */}
-                    {/* left: 1/3 = 33.33% (start of middle column), right: 1/3 = 33.33% (end of middle column) */}
                     <div className="hidden lg:block">
                         <Block
                             position="absolute"
@@ -184,21 +166,6 @@ const Pricing: React.FC = () => {
                         />
                     </div>
                     {/* Footer decoration block - responsive */}
-                    {/* Block Component Usage Example:
-                        - position="absolute": Positions block relative to nearest positioned ancestor
-                        - top="top-297": 297 units from top (Tailwind spacing scale)
-                        - left/right="left-0/right-0": Full width positioning
-                        - height="h-40": 40 units height (10rem)
-                        - width="w-full": Full width (100%)
-                        - lineDirection="center": Lines centered within block
-                        - lineColor="stroke-orange-200": Orange stroke color for SVG lines
-                        - lineCount={17}: Number of decorative lines to render
-                        - strokeWidth={1}: 1px line thickness
-                        - borderColor="border-orange-200": Orange border color
-                        - borderWidth="border-y": Top and bottom borders only
-                        - borderStyle="dashed": Dashed border style
-                        - zIndex={1}: Layer stacking order
-                    */}
                     <div className="hidden sm:block">
                         <Block
                             position="absolute"
