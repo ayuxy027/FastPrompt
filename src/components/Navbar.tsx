@@ -40,10 +40,10 @@ const Navbar: React.FC = () => {
                 <Link to="/" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Home
                 </Link>
-                <Link to="/" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <Link to="/site-builder" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     Site Builder
                 </Link>
-                <Link to="/" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
+                <Link to="/editor" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">
                     JSON Editor
                 </Link>
                 <Link to="/pricing" className="hover:text-orange-400 transition font-['Plus_Jakarta_Sans'] tracking-tight">

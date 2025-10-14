@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             items: [
                 { label: "Home", href: "/home" },
                 { label: "Site Builder", href: "/site-builder" },
-                { label: "JSON Editor", href: "/json-editor" },
+                { label: "JSON Editor", href: "/editor" },
                 { label: "API", href: "/api" },
                 { label: "Documentation", href: "/docs" },
                 { label: "Templates", href: "/templates" },

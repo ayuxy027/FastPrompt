@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import Login from './components/auth/Login';
 import Chat from './components/Chat';
 import Pricing from './components/Pricing';
+import JsonEditorPage from './components/JsonEditorPage';
+import SiteBuilder from './components/SiteBuilder';
 import { SmoothCursor } from './components/Cursor';
 
 const HomePage = () => (
@@ -29,6 +31,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/editor" element={<JsonEditorPage />} />
+          <Route path="/site-builder" element={<SiteBuilder />} />
         </Routes>
       </div>
     </Router>

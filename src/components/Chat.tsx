@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import { motion } from 'framer-motion';
@@ -15,20 +15,7 @@ const Chat: React.FC = () => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [result, setResult] = useState<string | null>(null);
 
-    useEffect(() => {
-        // Get the query from location state
-        const state = location.state as ChatState;
-        if (state?.query) {
-            setChatState(state);
-            // Start processing the query
-            processQuery(state.query);
-        } else {
-            // If no query provided, redirect back to home
-            navigate('/');
-        }
-    }, [location.state, navigate]);
-
-    const processQuery = async (query: string) => {
+    const processQuery = useCallback(async (query: string) => {
         setIsProcessing(true);
 
         // Simulate processing time (replace with actual API call later)
@@ -44,11 +31,24 @@ const Chat: React.FC = () => {
 
         setResult(JSON.stringify(mockResult, null, 2));
         setIsProcessing(false);
-    };
+    }, []);
 
-    const handleNewQuery = () => {
+    useEffect(() => {
+        // Get the query from location state
+        const state = location.state as ChatState;
+        if (state?.query) {
+            setChatState(state);
+            // Start processing the query
+            processQuery(state.query);
+        } else {
+            // If no query provided, redirect back to home
+            navigate('/');
+        }
+    }, [location.state, navigate, processQuery]);
+
+    const handleNewQuery = useCallback(() => {
         navigate('/');
-    };
+    }, [navigate]);
 
     if (!chatState) {
         return (
@@ -158,8 +158,9 @@ const Chat: React.FC = () => {
                     {result && (
                         <button
                             onClick={() => {
-                                // TODO: Navigate to JSON editor with the result
-                                console.log('Navigate to JSON Editor with:', result);
+                                if (result) {
+                                    navigate('/editor', { state: { initialJson: result } });
+                                }
                             }}
                             className="flex-1 bg-orange-400 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
                         >
