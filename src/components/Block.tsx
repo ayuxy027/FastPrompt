@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 interface BlockProps {
     zIndex?: number;
@@ -100,8 +100,8 @@ const Block: React.FC<BlockProps> = ({
         borderColor
     ].join(' ');
 
-    // Generate unique ID once for both pattern and fill
-    const patternId = `diagonal-block-pattern-${Math.random().toString(36).substr(2, 9)}`;
+    // Generate a stable id suitable for SSR/CSR without randomness
+    const patternId = `diagonal-block-pattern-${useId().replace(/[:]/g, '')}`;
 
     return (
         <div
