@@ -9,7 +9,7 @@ import Chat from './components/Chat';
 import Pricing from './components/Pricing';
 import JsonEditorPage from './components/JsonEditorPage';
 import SiteBuilder from './components/SiteBuilder';
-import { SmoothCursor } from './components/Cursor';
+
 
 const HomePage = () => (
   <>
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Router>
       <div className="font-['Plus_Jakarta_Sans'] tracking-tight">
-        <SmoothCursor />
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
