@@ -6,6 +6,10 @@ import { motion } from 'framer-motion';
 
 interface LocationState {
   initialJson?: string;
+  queryId?: string;
+  sessionId?: string;
+  originalQuery?: string;
+  timestamp?: string;
 }
 
 const JsonEditorPage: React.FC = () => {
@@ -21,6 +25,10 @@ const JsonEditorPage: React.FC = () => {
       "description": "Edit your JSON here",
       "features": ["formatting", "validation", "editing tools"]
     }, null, 2);
+
+  // Generate unique IDs if not provided (for direct access to /editor)
+  const queryId = locationState?.queryId || `query-${Date.now()}`;
+  const sessionId = locationState?.sessionId || `session-${Date.now()}`;
 
   const handleSave = useCallback((json: string) => {
     // In a real app, this would save to a backend or state
@@ -46,6 +54,19 @@ const JsonEditorPage: React.FC = () => {
           <p className="text-gray-600">
             Edit, format, and validate your JSON data with powerful tools
           </p>
+
+          {/* Query Context */}
+          {locationState?.originalQuery && (
+            <div className="mt-4 p-4 bg-orange-50 rounded-lg border border-orange-200">
+              <h3 className="text-sm font-medium text-orange-800 mb-2">Original Query:</h3>
+              <p className="text-sm text-orange-700 italic">"{locationState.originalQuery}"</p>
+              {locationState.timestamp && (
+                <p className="text-xs text-orange-600 mt-2">
+                  Generated: {new Date(locationState.timestamp).toLocaleString()}
+                </p>
+              )}
+            </div>
+          )}
         </motion.div>
 
         {/* JSON Editor Component */}
@@ -55,7 +76,12 @@ const JsonEditorPage: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-8"
         >
-          <JsonEditor initialJson={initialJson} onSave={handleSave} />
+          <JsonEditor
+            initialJson={initialJson}
+            onSave={handleSave}
+            queryId={queryId}
+            sessionId={sessionId}
+          />
         </motion.div>
 
         {/* Tips Section */}

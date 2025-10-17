@@ -48,7 +48,7 @@ export class QualityScorer {
       overall: {
         score: overallScore,
         grade,
-        isPassing: overallScore >= 0.6 && !gibberishResult.isGibberish
+        isPassing: overallScore >= 0.4 && !gibberishResult.isGibberish
       },
       breakdown: scores,
       details: {

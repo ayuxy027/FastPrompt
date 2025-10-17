@@ -7,13 +7,17 @@ interface JsonEditorProps {
   onSave?: (json: string) => void;
   autoSave?: boolean;
   storageKey?: string;
+  queryId?: string; // Unique identifier for each query's editor
+  sessionId?: string; // Session identifier to separate different user sessions
 }
 
 const JsonEditor: React.FC<JsonEditorProps> = ({
   initialJson = '{}',
   onSave,
   autoSave = true,
-  storageKey = 'fastprompt_json_editor'
+  storageKey,
+  queryId,
+  sessionId
 }) => {
   const [jsonValue, setJsonValue] = useState<string>(initialJson);
   const [isFormatted, setIsFormatted] = useState<boolean>(false);
@@ -33,11 +37,42 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
   const editorRef = useRef<unknown>(null);
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Create unique storage key for each query/session
+  const uniqueStorageKey = useMemo(() => {
+    if (storageKey) return storageKey;
+
+    const session = sessionId || 'default';
+    const query = queryId || Date.now().toString();
+    return `fastprompt-json-editor-${session}-${query}`;
+  }, [storageKey, queryId, sessionId]);
+
+  // Define saveToStorage first to avoid reference errors
+  const saveToStorage = useCallback(() => {
+    try {
+      const data = {
+        content: jsonValue,
+        theme: editorTheme,
+        fontSize,
+        wordWrap,
+        showMinimap,
+        showLineNumbers,
+        showWhitespace,
+        autoFormat,
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem(uniqueStorageKey, JSON.stringify(data));
+      setHasUnsavedChanges(false);
+      setLastSaved(new Date());
+    } catch (error) {
+      console.error('Failed to save to localStorage:', error);
+    }
+  }, [jsonValue, editorTheme, fontSize, wordWrap, showMinimap, showLineNumbers, showWhitespace, autoFormat, uniqueStorageKey]);
+
   // Load from localStorage on mount
   useEffect(() => {
     const loadFromStorage = () => {
       try {
-        const stored = localStorage.getItem(storageKey);
+        const stored = localStorage.getItem(uniqueStorageKey);
         if (stored) {
           const parsed = JSON.parse(stored);
           setJsonValue(parsed.content || initialJson);
@@ -58,7 +93,7 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
     };
 
     loadFromStorage();
-  }, [initialJson, storageKey]);
+  }, [initialJson, uniqueStorageKey]);
 
   // Auto-save functionality
   useEffect(() => {
@@ -77,7 +112,7 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
         clearTimeout(saveTimeoutRef.current);
       }
     };
-  }, [jsonValue, autoSave, hasUnsavedChanges, storageKey, saveToStorage]);
+  }, [jsonValue, autoSave, hasUnsavedChanges, uniqueStorageKey, saveToStorage]);
 
   // Update jsonValue when initialJson prop changes
   useEffect(() => {
@@ -91,27 +126,6 @@ const JsonEditor: React.FC<JsonEditorProps> = ({
   const handleEditorDidMount = (editor: unknown) => {
     editorRef.current = editor;
   };
-
-  const saveToStorage = useCallback(() => {
-    try {
-      const data = {
-        content: jsonValue,
-        theme: editorTheme,
-        fontSize,
-        wordWrap,
-        showMinimap,
-        showLineNumbers,
-        showWhitespace,
-        autoFormat,
-        timestamp: new Date().toISOString()
-      };
-      localStorage.setItem(storageKey, JSON.stringify(data));
-      setHasUnsavedChanges(false);
-      setLastSaved(new Date());
-    } catch (error) {
-      console.error('Failed to save to localStorage:', error);
-    }
-  }, [jsonValue, editorTheme, fontSize, wordWrap, showMinimap, showLineNumbers, showWhitespace, autoFormat, storageKey]);
 
   const validateJson = useCallback((value: string) => {
     if (!value.trim()) {

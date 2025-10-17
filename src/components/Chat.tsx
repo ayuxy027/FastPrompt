@@ -263,8 +263,20 @@ const Chat: React.FC = () => {
                     {result && !isFallbackResponse && (
                         <button
                             onClick={() => {
-                                if (result) {
-                                    navigate('/editor', { state: { initialJson: result } });
+                                if (result && chatState) {
+                                    // Create unique query ID based on query content and timestamp
+                                    const queryId = btoa(chatState.query + chatState.timestamp).replace(/[^a-zA-Z0-9]/g, '').substring(0, 16);
+                                    const sessionId = `session-${Date.now()}`;
+
+                                    navigate('/editor', {
+                                        state: {
+                                            initialJson: result,
+                                            queryId: queryId,
+                                            sessionId: sessionId,
+                                            originalQuery: chatState.query,
+                                            timestamp: chatState.timestamp
+                                        }
+                                    });
                                 }
                             }}
                             className="flex-1 bg-orange-400 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
@@ -278,8 +290,8 @@ const Chat: React.FC = () => {
                     <button
                         onClick={handleNewQuery}
                         className={`flex-1 px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2 ${isFallbackResponse
-                                ? 'bg-orange-400 hover:bg-orange-500 text-white'
-                                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                            ? 'bg-orange-400 hover:bg-orange-500 text-white'
+                            : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                             }`}
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -309,10 +321,10 @@ const Chat: React.FC = () => {
 
                         <div className="flex items-center space-x-3">
                             <div className={`w-6 h-6 rounded-full flex items-center justify-center ${error ? 'bg-red-500' :
-                                    isProcessing ? 'bg-orange-400' :
-                                        result && !isFallbackResponse ? 'bg-green-500' :
-                                            isFallbackResponse ? 'bg-orange-500' :
-                                                'bg-gray-300'
+                                isProcessing ? 'bg-orange-400' :
+                                    result && !isFallbackResponse ? 'bg-green-500' :
+                                        isFallbackResponse ? 'bg-orange-500' :
+                                            'bg-gray-300'
                                 }`}>
                                 {error ? (
                                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -333,8 +345,8 @@ const Chat: React.FC = () => {
                                 )}
                             </div>
                             <span className={`${error ? 'text-red-600' :
-                                    isFallbackResponse ? 'text-orange-600' :
-                                        'text-gray-700'
+                                isFallbackResponse ? 'text-orange-600' :
+                                    'text-gray-700'
                                 }`}>
                                 {error ? 'Failed to generate JSON specification' :
                                     isFallbackResponse ? 'Query validation failed - invalid input' :
@@ -344,8 +356,8 @@ const Chat: React.FC = () => {
 
                         <div className="flex items-center space-x-3">
                             <div className={`w-6 h-6 rounded-full flex items-center justify-center ${error || isFallbackResponse ? 'bg-gray-300' :
-                                    result && !isFallbackResponse ? 'bg-green-500' :
-                                        'bg-gray-300'
+                                result && !isFallbackResponse ? 'bg-green-500' :
+                                    'bg-gray-300'
                                 }`}>
                                 {result && !isFallbackResponse ? (
                                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
